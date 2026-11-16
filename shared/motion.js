@@ -344,8 +344,8 @@
     init(opts = {}) {
       if (ok) { gsap.registerPlugin(ScrollTrigger); root.classList.add('motion') }
       $$('img').forEach(i => { i.decoding = 'async' });
-      smooth(); cursor(); magnetic(opts.magnetic); navCurtain(); progress();
-      const intro = ok ? ({columns: introColumns, rings: introRings, type: introType}[opts.intro] || introColumns) : (d => d());
+      smooth(); if (opts.cursor !== false) cursor(); if (opts.magnetic !== false) magnetic(opts.magnetic); if (opts.curtain !== false) navCurtain(); progress();
+      const intro = ok ? ({columns: introColumns, rings: introRings, type: introType, none: d => d()}[opts.intro] || introColumns) : (d => d());
       intro(() => { if (ok) setTimeout(() => { ScrollTrigger.refresh(); safety() }, 80); opts.onReady && opts.onReady() });
       if (ok) { let st; addEventListener('scroll', () => { clearTimeout(st); st = setTimeout(safety, 160) }, {passive: true}); addEventListener('load', () => setTimeout(safety, 300)) }
       if (ok) addEventListener('load', () => ScrollTrigger.refresh())

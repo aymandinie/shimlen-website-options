@@ -1,0 +1,6 @@
+Option 4 placeholder interior photos, Unsplash (free licence, https://unsplash.com/license). Replace with Shimlen project photos.
+use-plywood 1532588213355-52317771cce6 | use-mfc 1771888703722-ee7ad9143a67 | use-hpl 1610733374054-59454fe657cd | use-opaq 1600684388091-627109f3cd60
+use-sleek 1701422052139-e72ee5e67249 | use-edgeband 1784651859318-d9300849bf34 | use-envplas 1714860534425-7ce04e013dec | use-flexi 1719899913493-1e508c3833e8
+use-mfp 1752407828514-660d6945d392 | use-bedroom 1757344454333-cc666252e596 | use-office 1765371512992-843e6a92d7e6 | use-kitchen 1631048835473-73c7aaf86096
+use-tvwall 1633604712918-6ab1173d0ecd | use-island 1791493192271-b9544ac3c78b | use-hall 1751806524616-47dd4fabd68d
+(image URL: https://images.unsplash.com/photo-<id>)
