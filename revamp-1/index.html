@@ -481,7 +481,7 @@ document.querySelectorAll('#ptabs button').forEach(b=>b.onclick=()=>{document.qu
   document.addEventListener('pagescroll',upd);upd()})();
 Soul.place('rooms','low-formaldehyde');Soul.place('home','warehouse','warm','card');Soul.place('people','recognition','dk');Soul.place('belief','contact');
 Soul.reel('rReel','slow',['new-front-dawn.jpg','new-front-dusk.jpg']);
-Soul.init();document.getElementById('foot').insertAdjacentHTML('beforeend','<p class="sl-note">Pictures and films marked “Sample” are placeholders (Unsplash, Pexels), to be replaced with Shimlen\'s own photos after the photoshoot.</p>');
+Soul.init();document.getElementById('foot').insertAdjacentHTML('beforeend','<p class="sl-note">Photos marked “Sample photo” are placeholders (Unsplash), to be replaced after the photoshoot. Building views marked “Artist\'s impression” are renders of Shimlen\'s planned new building.</p>');
 Core.init();
 Core.rail(document.getElementById('yrail'),document.getElementById('yPrev'),document.getElementById('yNext'));
 document.getElementById('yrail').addEventListener('railmove',e=>document.getElementById('ybar').style.transform=`scaleX(${.08+.92*e.detail})`);
