@@ -401,7 +401,7 @@ document.getElementById('app').innerHTML=`
 <section class="hero" id="top"><div class="h-stick" id="hStick">
   ${rings()}
   <div class="wrap h-intro" id="hIntro"><span><b>${S.hero.eyebrow}</b></span><span class="scroll-cue">Scroll to enter <i></i></span></div>
-  <div class="h-arch" id="hArch"><div class="reel" id="heroReel"></div><div class="shade"></div></div>
+  <div class="h-arch" id="hArch"><div class="reel" id="rReel"></div><div class="shade"></div></div>
   <div class="h-copy"><div class="wrap row">
     <h1 class="serif">${S.hero.h1}</h1>
     <div><p class="lead">${S.hero.lead}</p><div class="btns"><a href="#products" class="btn">${ring()}Explore products</a><a href="#warehouse" class="btn">${ring()}Inside the warehouse</a></div></div>
@@ -539,7 +539,8 @@ document.querySelectorAll('#ptabs button').forEach(b=>b.onclick=()=>{document.qu
     hdr.classList.toggle('solid',q>=.98||y>hero.offsetHeight-L.H-10)};
   lay();set();addEventListener('resize',()=>{lay();set()});document.addEventListener('pagescroll',set);addEventListener('scroll',set,{passive:true})})();
 
-Soul.place('rooms','low-formaldehyde','dk arch');Soul.place('story','warehouse','arch');Soul.place('people','recognition','dk arch');Soul.place('belief','contact','arch');
+Soul.place('story','warehouse','arch');Soul.place('home','recognition','dk arch','arch');Soul.place('belief','contact','arch');
+Soul.reel('rReel','night',['new-night.jpg']);
 Soul.init();document.getElementById('foot').insertAdjacentHTML('beforeend','<p class="sl-note">Pictures and films marked “Sample” are placeholders (Unsplash, Pexels), to be replaced with Shimlen\'s own photos after the photoshoot.</p>');
 Core.init();
 Core.rail(document.getElementById('prail'),document.getElementById('pPrev'),document.getElementById('pNext'));

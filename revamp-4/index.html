@@ -65,7 +65,7 @@ body.menu-open .menu{transform:none}
 .reel img{width:100%;height:100%;object-fit:cover;transform:scale(1.12)}
 .reel figure.on img{animation:kb 9s linear forwards}
 @keyframes kb{from{transform:scale(1.12)}to{transform:scale(1)}}
-.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,14,12,.5),rgba(18,14,12,.32) 38%,rgba(18,14,12,.34) 62%,rgba(18,14,12,.62))}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,14,12,.62),rgba(18,14,12,.3) 22%,rgba(18,14,12,.38) 45%,rgba(18,14,12,.4) 62%,rgba(18,14,12,.62))}
 .hero .sub{font-size:clamp(15px,1.2vw,17px);max-width:44ch;color:rgba(255,255,255,.88);margin-top:-6px}
 .hero h1 em.i{font-size:1.08em}
 .h-cap{position:absolute;left:0;right:0;bottom:34px;width:var(--wrap);margin:0 auto;display:flex;align-items:center;gap:18px;font-size:12.5px;letter-spacing:.06em;color:rgba(255,255,255,.88)}
@@ -356,7 +356,7 @@ footer a:hover{color:var(--fg)}
 const {ic,R}=Core,S=SH,P=S.products.list,Y=S.story.years,
   USE=['stock/plywood.jpg','stock/mfc.jpg','stock/hpl.jpg','stock/opaq.jpg','stock/sleek.jpg','stock/edgeband.jpg','stock/envplas.jpg','stock/flexi.jpg','stock/mfp.jpg'];
 const STEPS=[['stock/boards.jpg','The core','It starts inside, where no one looks. A plywood or E0 core, cut true, that holds a screw for years and keeps a long door flat.','Plywood · eucalli E0 · melamine faced plywood'],
-    ['stock/opaq.jpg','The surface','Then the face you live with every day. Woodgrain, stone, solid colour, in finishes you can feel.','400+ MFC decors · 500+ HPL decors · OPAQ ultra-matt'],
+    ['stock/surface.jpg','The surface','Then the face you live with every day. Woodgrain, stone, solid colour, in finishes you can feel.','400+ MFC decors · 500+ HPL decors · OPAQ ultra-matt'],
     ['stock/veneer.jpg','The edge','Then the edge your hand finds first. Matched to the decor and bent round the curves, so the piece reads as one.','500+ edgeband colours · Flexi edge for curves'],
     ['stock/island.jpg','The room','And then it becomes someone\'s kitchen. The carpenter takes the credit, as they should. We make sure the boards were right.','Delivered in 24 hours* across the Klang Valley']];
 const nav=S.nav.map(([t,id])=>`<a href="#${id}">${t}</a>`).join('');
@@ -366,8 +366,8 @@ document.getElementById('hLogo').innerHTML=SHIMLEN_LOGO;
 const more=(t='Find out more')=>`<span class="more">${t}</span>`;
 
 document.getElementById('app').innerHTML=`
-<section class="hero" id="top"><div class="reel" id="heroReel"></div><div class="shade"></div>
-  <div class="h-c"><div class="lab light">Since 1980 · 10,000 sq m in Semenyih, Selangor</div><h1>Every room starts with a <em class="i">board.</em></h1>
+<section class="hero" id="top"><div class="reel" id="rReel"></div><div class="shade"></div>
+  <div class="h-c"><div class="lab light">Since 1980 · Semenyih, Selangor</div><h1>Every room starts with a <em class="i">board.</em></h1>
     <p class="sub">Plywood, laminates, edgebands and panels for Malaysia's furniture makers, in stock and ready to go.</p><a href="#spaces" class="btn-o light">Find out more</a></div>
   <a class="cue" href="#about" aria-label="Scroll down"><span></span></a></section>
 
@@ -426,7 +426,7 @@ document.getElementById('app').innerHTML=`
 <div class="points">${S.warehouse.points.map(([i,t])=>`<div>${ic('i-'+i)}${t}</div>`).join('')}</div>
 
 <section style="padding-bottom:0">
-  <div class="frame"><div class="pic m"><img src="${R}img/stock/wh-racking.jpg" alt="Warehouse racking (sample photo)" loading="lazy"></div>
+  <div class="frame"><div class="pic m"><img src="${R}img/renders/new-corner-tropical.jpg" alt="Shimlen's new building (artist's impression)" loading="lazy"></div>
     <div class="card"><div class="lab">Our story</div><h2 class="h">Since <em class="i">1980</em></h2><p class="s">Founded to supply furniture makers, Shimlen has moved three times to keep up with them. Our home since 2017 is Bandar Teknologi Kajang, with a new building rising next door.</p><a class="more" href="#story">Find out more</a></div></div>
 </section>
 
@@ -479,7 +479,7 @@ document.getElementById('foot').innerHTML=`<div class="f-grid">
 </div>
 <div class="f-bot"><div class="l"><span>${S.footer.legal}</span><span>Privacy notice</span><span>Terms</span></div>
   <div class="social"><a href="#" aria-label="Facebook">${ic('fb','fill')}</a><a href="#" aria-label="Instagram">${ic('ig','fill')}</a><a href="#" aria-label="Xiaohongshu">${ic('xhs','fill')}</a></div></div>
-<p class="note">Pictures and films marked “Sample” are placeholders (Unsplash, Pexels), to be replaced with Shimlen's own photos after the photoshoot.</p>`;
+<p class="note">Photos marked “Sample photo” are placeholders (Unsplash), to be replaced after the photoshoot. Building views marked “Artist's impression” are renders of Shimlen's planned new building.</p>`;
 
 /* timeline: pick a year; the card sits under its dot */
 (function(){const card=document.getElementById('ysCard'),ln=document.getElementById('ysLine'),bs=[...ln.querySelectorAll('button')];let cur=-1;
@@ -496,6 +496,8 @@ document.getElementById('foot').innerHTML=`<div class="f-grid">
 (function(){const st=[...document.querySelectorAll('.ss-step')],fs=[...document.querySelectorAll('.ss-pics figure')],n=document.getElementById('ssN');let c=0;
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=+e.target.dataset.i;if(i===c)return;
     st.forEach((s,j)=>s.classList.toggle('on',j===i));fs.forEach((f,j)=>{f.classList.toggle('was',j<i);f.classList.toggle('on',j===i)});c=i;n.textContent='0'+(i+1)}),{rootMargin:'-45% 0px -45% 0px'});st.forEach(s=>io.observe(s))})();
+/* Quiet · youthful: the views change through vertical strips, the same rhythm as the new fluted façade */
+Soul.reel('rReel','blinds',['new-front-dusk.jpg','new-corner-tropical.jpg','new-front-mist.jpg','new-night.jpg']);
 Soul.init();
 Core.init();
 const bar=(r,b)=>{Core.rail(document.getElementById(r),document.getElementById(b+'Prev'),document.getElementById(b+'Next'));

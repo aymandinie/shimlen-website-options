@@ -16,3 +16,6 @@ sleek 1701422052139-e72ee5e67249 | use-edgeband 1784651859318-d9300849bf34 | use
 mfp 1752407828514-660d6945d392 | use-bedroom 1757344454333-cc666252e596 | use-office 1765371512992-843e6a92d7e6 | use-kitchen 1631048835473-73c7aaf86096
 tvwall 1633604712918-6ab1173d0ecd | use-island 1791493192271-b9544ac3c78b | use-hall 1751806524616-47dd4fabd68d
 (image URL: https://images.unsplash.com/photo-<id>)
+kitchen-dark.jpg  https://unsplash.com/photos/1759147960461-b74a7e9a75d4
+surface.jpg  https://unsplash.com/photos/1765371515651-faa86f08f0ae
+study.jpg  https://unsplash.com/photos/1766330977451-de1b64b5e641

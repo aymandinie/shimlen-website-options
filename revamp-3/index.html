@@ -361,7 +361,7 @@ const YS=['Founded','Jalan Cheras','MIECO','Importer','Lot 4530','New home','E1 
 
 document.getElementById('app').innerHTML=`
 <section class="hero" id="top" style="padding-bottom:0"><div class="wrap">
-  <div class="reel" id="heroReel"><div class="shade"></div><span class="tag tagl">Semenyih, Selangor</span>
+  <div class="reel" id="rReel"><div class="shade"></div><span class="tag tagl">Semenyih, Selangor</span>
     <div class="grid h-over"><h1 class="big split">${S.hero.h1}</h1>
       <div class="ctas rv"><a href="#products" class="btn btn-white">Explore products ${ic('arrow')}</a><a href="#warehouse" class="btn btn-white">Inside the warehouse ${ic('arrow')}</a></div></div></div>
   <div class="grid h-under">
@@ -482,7 +482,8 @@ document.querySelectorAll('#filters button').forEach(b=>b.onclick=()=>{document.
     document.getElementById('yP').onclick=()=>show(cur-1);document.getElementById('yN').onclick=()=>show(cur+1)};
   bs.forEach(b=>b.onclick=()=>show(+b.dataset.i));show(0)})();
 
-Soul.place('rooms','low-formaldehyde');Soul.place('story','warehouse','stone');Soul.place('people','recognition','dk');Soul.place('belief','contact','stone');
+Soul.place('rooms','low-formaldehyde');Soul.place('home','warehouse','stone','index');Soul.place('people','recognition','dk');
+Soul.reel('rReel','still',['new-front-mist.jpg']);
 Soul.init();document.getElementById('foot').insertAdjacentHTML('beforeend','<p class="sl-note">Pictures and films marked “Sample” are placeholders (Unsplash, Pexels), to be replaced with Shimlen\'s own photos after the photoshoot.</p>');
 Core.init();
 
@@ -490,12 +491,12 @@ Core.init();
 document.querySelectorAll('.prod').forEach(e=>e.dataset.cursor='View');
 document.querySelectorAll('.gal button,.cgrid .cert,.record .cert,.proof button,.lay').forEach(e=>e.dataset.cursor='Zoom');
 document.querySelectorAll('.qs,.rec-line,.h-over').forEach(e=>e.setAttribute('data-cur-dark',''));
-Motion.init({intro:'type',onReady(){if(!Motion.ok)return;
-  gsap.fromTo('#heroReel',{clipPath:'inset(12% 10% 12% 10%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.6,ease:'expo.out',clearProps:'clipPath',onComplete:heroScrub})}});
+/* Studio · still: no loading screen, no flying pictures; the building stands still and the type does the work */
+Motion.init({intro:'none'});
 /* hero: the film recedes into a frame while the headline lifts away */
 function heroScrub(){Motion.scrub(document.getElementById('heroReel'),{clipPath:'inset(0% 0% 0% 0%)'},{clipPath:'inset(8% 6% 8% 6%)'},{trigger:'.hero',start:'top top',end:'bottom top'})}
-if(!Motion.ok)heroScrub();
-Motion.scrub(document.querySelector('.h-over h1'),{y:0},{y:-160},{trigger:'.hero',start:'top top',end:'bottom top'});
+
+
 /* big headings drift a little sideways, editorial style */
 document.querySelectorAll('.sec-top h2,.ab h2,.wh-copy h2').forEach((h,i)=>Motion.scrub(h,{xPercent:i%2?-3:3},{xPercent:i%2?3:-3},{}));
 Motion.masks('.ab-img,.euc .media,.yd,.map,.rec-line');
