@@ -102,6 +102,66 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .makers img{width:100%;height:100%;object-fit:cover}
 .makers figcaption{position:absolute;left:12px;bottom:12px;z-index:2;background:rgba(255,253,251,.92);padding:8px 14px;border-radius:999px;font-size:13px}
 
+/* 3 · scale: one aerial view opens to the full width, then four facts with pictures */
+.scl{padding-top:clamp(40px,5vw,72px)}
+.scl-frame{position:relative;height:min(92svh,880px);min-height:560px;overflow:hidden;color:#fff;background:var(--deep)}
+.scl-pic{position:absolute;inset:0}
+.scl-pic img{width:100%;height:100%;object-fit:cover}
+.scl-frame::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(28,22,21,.82),rgba(28,22,21,.3) 48%,rgba(28,22,21,.08) 72%),linear-gradient(90deg,rgba(28,22,21,.4),rgba(28,22,21,0) 60%)}
+.scl-tx{position:absolute;left:0;right:0;bottom:clamp(34px,7vh,80px);z-index:2;margin:0 auto}
+.scl-tx .eyebrow{color:#E7DED7}
+.scl-n{font-family:Saira;font-weight:300;font-size:clamp(84px,13vw,220px);line-height:.85;letter-spacing:-.045em;margin:18px 0 14px;font-variant-numeric:tabular-nums}
+.scl-n small{font-size:.26em;margin-left:.12em;color:#E7DED7;letter-spacing:0}
+.scl-tx p{font-size:clamp(18px,1.6vw,23px);line-height:1.4;max-width:38ch;color:rgba(255,255,255,.94)}
+.scl-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:16px}
+.scl-card{background:var(--white);border-radius:var(--r);overflow:hidden}
+.scl-card .im{aspect-ratio:4/3;position:relative;overflow:hidden;background:var(--sand)}
+.scl-card img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.scl-card:hover img{transform:scale(1.05)}
+.scl-card .tx{padding:18px 20px 22px}
+.scl-card b{font-family:Saira;font-weight:400;font-size:clamp(28px,2.4vw,38px);letter-spacing:-.02em;line-height:1;display:block}
+.scl-card b small{font-size:.5em;color:var(--acc);margin-left:3px}
+.scl-card span{font-size:14px;color:var(--fg2);display:block;margin-top:8px;line-height:1.45}
+
+/* 4 · rooms: the picture holds still while the rooms are read past it */
+.rs{display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,5vw,90px)}
+.rs-pics{position:sticky;top:calc(var(--hh) + 24px);height:calc(100svh - var(--hh) - 48px);max-height:780px;border-radius:var(--r);overflow:hidden;background:var(--sand)}
+.rs-pics figure{position:absolute;inset:0;margin:0;clip-path:inset(100% 0 0 0);transition:clip-path 1.2s var(--ease)}
+.rs-pics figure.on,.rs-pics figure.was{clip-path:inset(0 0 0 0)}
+.rs-pics figure.on{z-index:1}
+.rs-pics img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 2.2s var(--ease)}
+.rs-pics figure.on img{transform:none}
+.rs-cnt{position:absolute;left:16px;bottom:16px;z-index:3;background:rgba(255,253,251,.92);border-radius:999px;padding:8px 14px;font-family:Saira;font-size:14px;font-variant-numeric:tabular-nums}
+.rs-step{min-height:74svh;display:flex;flex-direction:column;justify-content:center;opacity:.25;transition:opacity .6s}
+.rs-step.on{opacity:1}
+.rs-step:last-child{min-height:62svh}
+.rs-step .k{font-family:Saira;font-size:15px;color:var(--acc)}
+.rs-step h3{font-family:Saira;font-weight:400;font-size:clamp(34px,3.4vw,52px);letter-spacing:-.02em;margin:8px 0 14px;line-height:1}
+.rs-step p{font-size:17px;color:var(--fg2);max-width:34ch}
+.rs-step .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.rs-m{display:none}
+
+/* 5 · board, surface, edge: three tall panels; the one you point at opens */
+.acc{display:flex;gap:14px;height:clamp(540px,66vh,680px)}
+.ap{position:relative;flex:1;min-width:0;border-radius:var(--r);overflow:hidden;color:#fff;cursor:pointer;transition:flex 1.1s var(--ease)}
+.ap.on{flex:3.2;cursor:default}
+.ap>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.ap.on>img{transform:scale(1.04)}
+.ap::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(28,22,21,.9),rgba(28,22,21,.4) 55%,rgba(28,22,21,.18))}
+.ap .vt{position:absolute;z-index:2;left:22px;bottom:26px;display:flex;align-items:center;gap:14px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:Saira;font-size:clamp(26px,2.4vw,36px);transition:opacity .4s}
+.ap .vt i{font-style:normal;font-size:14px;opacity:.8}
+.ap.on .vt{opacity:0}
+.ap .bd{position:absolute;z-index:2;left:clamp(20px,2.4vw,34px);right:clamp(20px,2.4vw,34px);bottom:clamp(20px,2.4vw,34px);opacity:0;transform:translateY(18px);transition:opacity .4s,transform .7s var(--ease);pointer-events:none}
+.ap.on .bd{opacity:1;transform:none;transition-delay:.35s;pointer-events:auto}
+.ap .bd .k{font-family:Saira;font-size:14px;opacity:.85}
+.ap .bd h3{font-family:Saira;font-weight:400;font-size:clamp(40px,4vw,64px);letter-spacing:-.025em;line-height:1;margin:6px 0 10px}
+.ap .bd p{max-width:44ch;margin-bottom:20px;color:rgba(255,255,255,.9)}
+.ap .pl{display:flex;flex-wrap:wrap;gap:8px}
+.ap .pl button{display:inline-flex;flex-direction:column;align-items:flex-start;padding:10px 16px;border-radius:14px;background:rgba(255,253,251,.95);color:var(--fg);text-align:left;transition:background .3s,transform .3s var(--ease)}
+.ap .pl button:hover{background:#fff;transform:translateY(-2px)}
+.ap .pl b{font-weight:500;font-size:14.5px}
+.ap .pl span{font-size:12px;color:var(--mut)}
+
 /* 3 · rooms: one at a time, left then right */
 .head{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,4vw,60px);align-items:end;margin-bottom:clamp(44px,5vw,80px)}
 .head .h2{margin-top:14px}
@@ -238,7 +298,8 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .q-dots button.on{background:var(--deep)}
 .cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(56px,6vw,90px);text-align:left}
 .cert{display:flex;flex-direction:column;gap:8px;text-align:left}
-.cert .fr{position:relative;height:200px;background:var(--bg);border-radius:var(--r);transition:background .3s}
+.cgrid{grid-template-columns:repeat(4,minmax(0,250px));justify-content:center}
+.cert .fr{position:relative;height:160px;background:var(--bg);border-radius:var(--r);transition:background .3s}
 .cert:hover .fr{background:var(--sand)}
 .cert .fr img{position:absolute;inset:18px;width:calc(100% - 36px);height:calc(100% - 36px);object-fit:contain;filter:drop-shadow(0 6px 14px rgba(30,25,24,.2))}
 .cert .yrp{font-size:12.5px;color:var(--acc);font-weight:500;margin-top:4px}
@@ -287,6 +348,17 @@ footer ul a:hover{color:#fff}
   .story{grid-template-columns:1fr}.story .stick{position:relative;top:0}
 }
 @media (max-width:900px){
+  .scl-cards{grid-template-columns:1fr 1fr}
+  .rs{grid-template-columns:1fr}.rs-pics{display:none}
+  .rs-step,.rs-step:last-child{min-height:0;opacity:1;padding:24px 0 30px}
+  .rs-m{display:block;position:relative;aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;margin-bottom:18px}
+  .rs-m img{width:100%;height:100%;object-fit:cover}
+  .acc{flex-direction:column;height:auto}
+  .ap{flex:none;height:96px;transition:height .8s var(--ease)}
+  .ap.on{flex:none;height:auto;padding:150px 0 0}
+  .ap .vt{writing-mode:horizontal-tb;transform:none;bottom:auto;top:50%;translate:0 -50%;font-size:26px}
+  .ap .bd{position:relative;left:0;right:0;bottom:0;padding:0 20px 22px}
+  .ap:not(.on) .bd{display:none}
   :root{--pad:clamp(64px,10vw,96px)}
   .nav-cta .btn{display:none}
   .h-grid,.head,.htop,.euc,.next,.ct{grid-template-columns:1fr}
@@ -309,6 +381,8 @@ footer ul a:hover{color:#fff}
   .scale .pic{aspect-ratio:4/5;min-height:0}
 }
 @media (max-width:560px){
+  .scl-cards{grid-template-columns:1fr}.scl-frame{height:86svh}
+  .cgrid{grid-template-columns:1fr 1fr}
   :root{--hh:74px;--wrap:calc(100vw - 32px)}
   #hdr{top:10px;height:calc(var(--hh) - 10px)}
   .nav{padding-left:18px}.nav .logo{width:118px}
@@ -354,9 +428,9 @@ footer ul a:hover{color:#fff}
 <script src="../shared/rx.js"></script>
 <script>
 const {ic,R}=Core, S=SH, P=S.products.list, $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const NAV=[['About','about'],['Rooms','rooms'],['Products','products'],['Low Formaldehyde','low-formaldehyde'],['Warehouse','warehouse'],['Our Story','story'],['Contact','contact']];
+const NAV=[['About','about'],['Warehouse','warehouse'],['Rooms','rooms'],['Products','products'],['Low Formaldehyde','low-formaldehyde'],['Our Story','story'],['Contact','contact']];
 $('#navLinks').innerHTML=RX.nav(NAV); $('#menu').innerHTML=RX.nav(NAV)+'<a href="#contact">Enquire</a>'; $('#hLogo').innerHTML=SHIMLEN_LOGO;
-const GROUPS=[['Board','The core that holds the screw and keeps the door straight.','boards.jpg',[0,1,8,7,6]],
+const GROUPS=[['Board','The core that holds the screw and keeps the door straight.','board-stack.jpg',[0,1,8,7,6]],
   ['Surface','The face you see and touch, every day.','surface.jpg',[2,3,4]],
   ['Edge','The line your hand finds first, matched to the decor.','veneer.jpg',[5]]];
 
@@ -386,19 +460,35 @@ $('#app').innerHTML=`
   </div>
 </div></section>
 
+<section class="scl" id="warehouse">
+  <div class="scl-frame" id="sclFrame"><div class="scl-pic"><img src="${RX.stock('wh-aerial.jpg')}" alt="A large warehouse seen from the air" loading="lazy"></div>
+    <div class="wrap scl-tx"><div class="eyebrow">${S.warehouse.eyebrow}</div>
+      <div class="scl-n"><span data-count="10000">0</span><small>m²</small></div>
+      <p>${RX.SCALE.sqft.charAt(0).toUpperCase()+RX.SCALE.sqft.slice(1)}, ${RX.SCALE.pitch}. ${S.warehouse.h2}</p></div></div>
+  <div class="wrap"><div class="scl-cards">
+    ${[['board-stack.jpg','Boards stacked high',S.lf.record.n.toLocaleString('en'),'','low-formaldehyde boards in one record stockpile'],
+       ['aisle.jpg','Wrapped panels in an aisle','500','+','HPL decors and 400+ MFC decors on the shelf'],
+       ['fleet.jpg','Forklifts in a warehouse hall','24','h*','delivery across the Klang Valley, by our own team'],
+       ['timber-yard.jpg','A timber yard from the air','1','','supplier for board, surface and edge, sourced direct']].map(([f,a,n,u,t])=>`<article class="scl-card"><div class="im"><img src="${RX.stock(f)}" alt="${a}" loading="lazy"></div><div class="tx"><b>${n}<small>${u}</small></b><span>${t}</span></div></article>`).join('')}
+  </div></div>
+</section>
+
 <section class="white" id="rooms"><div class="wrap">
   <div class="head"><div><div class="eyebrow rv">Where our boards end up</div><h2 class="t h2 split">Not boards. Rooms people live in.</h2></div>
     <p class="lead rv">Kitchens cooked in every night, wardrobes opened every morning. This is what Shimlen materials become in the hands of Malaysia’s furniture makers.</p></div>
-  ${[0,1,2,4].map((k,i)=>{const r=RX.ROOMS[k];return `<article class="room"><figure class="pic"><img src="${RX.stock(r.f)}" alt="${r.room}" loading="lazy"></figure>
-    <div class="tx"><div class="k">0${i+1}</div><h3>${r.room}</h3><p>${r.line}</p><div class="chips">${r.p.map(p=>`<button class="chip" data-p="${p}">${P[p].n} ${ic('arrow')}</button>`).join('')}</div></div></article>`}).join('')}
+  <div class="rs">
+    <div class="rs-pics">${[0,1,2,4].map((k,i)=>`<figure class="${i?'':'on'}"><img src="${RX.stock(RX.ROOMS[k].f)}" alt="${RX.ROOMS[k].room}" loading="lazy"></figure>`).join('')}<span class="rs-cnt" id="rsCnt">01 / 04</span></div>
+    <div>${[0,1,2,4].map((k,i)=>{const r=RX.ROOMS[k];return `<article class="rs-step${i?'':' on'}" data-i="${i}"><figure class="rs-m"><img src="${RX.stock(r.f)}" alt="${r.room}" loading="lazy"></figure>
+      <div class="k">0${i+1}</div><h3>${r.room}</h3><p>${r.line}</p><div class="chips">${r.p.map(p=>`<button class="chip" data-p="${p}">${P[p].n} ${ic('arrow')}</button>`).join('')}</div></article>`}).join('')}</div>
+  </div>
 </div></section>
 
 <section id="products"><div class="wrap">
   <div class="head"><div><div class="eyebrow rv">${S.products.eyebrow}</div><h2 class="t h2 split">${S.products.h2}</h2></div><p class="lead rv">Every cabinet is three decisions: the board inside, the surface outside, and the edge between them. We stock all three, so they match.</p></div>
-  <div class="groups">${GROUPS.map(([h,p,img,list],g)=>`<article class="grp"><figure class="pic"><img src="${RX.stock(img)}" alt="${h}" loading="lazy"></figure>
-    <div class="tx"><div class="k">0${g+1}</div><h3>${h}</h3><p>${p}</p></div>
-    <ul>${list.map(i=>`<li><button data-p="${i}"><span><b>${P[i].n}</b><span>${P[i].b}</span></span><span class="circ">${ic('arrow')}</span></button></li>`).join('')}</ul>
-    ${g===2?`<div class="big"><div><b>500+</b><span>edgeband colours</span></div><div><b>1</b><span>supplier for all three</span></div></div>`:''}</article>`).join('')}</div>
+  <div class="acc" id="acc">${GROUPS.map(([h,p,img,list],g)=>`<article class="ap${g?'':' on'}" tabindex="0" aria-label="${h}"><img src="${RX.stock(img)}" alt="" loading="lazy">
+    <div class="vt"><i>0${g+1}</i>${h}</div>
+    <div class="bd"><div class="k">0${g+1} · ${list.length} ${list.length>1?'products':'product'}</div><h3>${h}</h3><p>${p}${g===2?' 500+ colours, matched to every decor.':''}</p>
+      <div class="pl">${list.map(i=>`<button data-p="${i}"><b>${P[i].n}</b><span>${P[i].b}</span></button>`).join('')}</div></div></article>`).join('')}</div>
   <div class="brands" id="brands"><div class="bh"><span>Brands we carry</span><span>Drag to browse</span></div><div class="mq" id="mq"><div class="mq-track"></div></div></div>
 </div></section>
 
@@ -422,14 +512,7 @@ $('#app').innerHTML=`
   </div>
 </div></section>
 
-<section class="white scale" id="warehouse"><div class="wrap">
-  <div class="head"><div><div class="eyebrow rv">${S.warehouse.eyebrow}</div><h2 class="t h2 split">${S.warehouse.h2}</h2></div><p class="lead rv">${S.warehouse.lead}</p></div>
-  <figure class="pic" style="margin:0"><img src="${RX.stock('wh-people.jpg')}" alt="Inside a large racked warehouse" loading="lazy">
-    <div class="nums"><div><b>10,000</b><span>sq m under one roof</span></div><div><b>24h*</b><span>delivery in the Klang Valley</span></div><div><b>500+</b><span>colour-matched edgebands</span></div><div><b>0</b><span>minimum order on low-formaldehyde</span></div></div></figure>
-  <div class="pair"><figure><img src="${RX.stock('lumber.jpg')}" alt="Timber racked and ready" loading="lazy"><figcaption>Racked and ready</figcaption></figure><figure><img src="${RX.stock('boards.jpg')}" alt="Boards stacked by thickness" loading="lazy"><figcaption>Stacked by thickness</figcaption></figure></div>
-</div></section>
-
-<section id="new-home" style="padding-top:0;background:var(--white)"><div class="wrap"><div class="next">
+<section id="new-home" style="background:var(--white)"><div class="wrap"><div class="next">
   <div class="tx"><div class="eyebrow">What comes next</div><h2 class="t h2 split">${RX.HOME.h}</h2><p class="lead">${RX.HOME.p}</p>
     <div class="ctas"><a href="#contact" class="btn btn-solid">Visit us ${ic('arrow')}</a></div></div>
   <div class="reel" id="nReel"></div>
@@ -481,15 +564,23 @@ $('#foot').innerHTML=`<div class="wrap">
     const r=el.getBoundingClientRect(),h=innerHeight,p=Math.min(1,Math.max(0,(h*.8-r.top)/(r.height+h*.25)));const n=Math.round(p*ws.length);ws.forEach((w,i)=>w.classList.toggle('on',i<n))};
   document.addEventListener('pagescroll',upd);upd()})();
 
+/* rooms: the step in the middle of the screen turns the picture */
+(function(){const st=$$('.rs-step'),fs=$$('.rs-pics figure'),n=$('#rsCnt');let c=0;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=+e.target.dataset.i;if(i===c)return;
+    st.forEach((s,j)=>s.classList.toggle('on',j===i));fs.forEach((f,j)=>{f.classList.toggle('was',j<i);f.classList.toggle('on',j===i)});c=i;n.textContent=`0${i+1} / 0${st.length}`}),{rootMargin:'-45% 0px -45% 0px'});
+  st.forEach(s=>io.observe(s))})();
+/* board, surface, edge: point at a panel (or tap it) to open it */
+(function(){const ps=$$('.ap');const open=p=>ps.forEach(x=>x.classList.toggle('on',x===p));
+  ps.forEach(p=>{p.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')open(p)});p.addEventListener('click',e=>{if(!e.target.closest('button'))open(p)});p.addEventListener('focus',()=>open(p))})})();
 RX.reel('rReel','slow',['new-front-dawn.jpg','new-front-dusk.jpg']);
 RX.reel('nReel','slow',['new-corner-tropical.jpg','new-night.jpg','new-corner.jpg']);
 RX.tag();
 Core.init();
 
 /* ---- motion: Open is slow. Nothing snaps; things settle. ---- */
-$$('.room .pic,.grp,.makers figure').forEach(e=>e.dataset.cursor='View');
+$$('.makers figure,.scl-card').forEach(e=>e.dataset.cursor='View');
 $$('.cert,.rec .cert,.proof button,.euc .lay,.h-rec').forEach(e=>e.dataset.cursor='Zoom');
-$$('.hbox,.ct-info,footer,.scale .pic').forEach(e=>e.setAttribute('data-cur-dark',''));
+$$('.hbox,.ct-info,footer,.scl-frame,.ap').forEach(e=>e.setAttribute('data-cur-dark',''));
 const heroBits=['.h-copy>*','.h-stats>div'];
 if(Motion.ok){gsap.set(heroBits,{opacity:0,y:22});gsap.set('.h-pic',{clipPath:'inset(8% 8% 8% 8% round 28px)'});gsap.set('#rReel',{scale:1.12})}
 RX.loader('dawn',{preload:['img/renders/new-front-dawn.jpg'],min:2600,done(){if(!Motion.ok)return;
@@ -498,9 +589,12 @@ RX.loader('dawn',{preload:['img/renders/new-front-dawn.jpg'],min:2600,done(){if(
   gsap.to('.h-copy>*',{opacity:1,y:0,duration:1.6,ease:'power2.out',stagger:.22,delay:.5});
   gsap.to('.h-stats>div',{opacity:1,y:0,duration:1.4,ease:'power2.out',stagger:.12,delay:1.2})}});
 Motion.init({intro:'none'});
-Motion.masks('.room .pic,.grp .pic,.makers figure,.euc .pic,.scale .pic,.pair figure,.next .reel,.map');
-Motion.cascade('.trio>div,.room .tx>*,.grp,.groups li,.brands,.rec,.tl .step,.feats>div,.corebox,.yl li,.cgrid .cert,.ct-info .r,.ct-info .h2,form,.nums>div,.next .tx>*');
-Motion.parallax('.room .pic img,.makers img,.pair img',6);
+Motion.masks('.makers figure,.euc .pic,.scl-card .im,.next .reel,.map');
+Motion.expand($('#sclFrame'),'inset(7% 6% 7% 6% round 28px)','inset(0% 0% 0% 0% round 0px)',{start:'top 95%',end:'top 15%'});
+Motion.scrub($('.scl-pic img'),{scale:1.18},{scale:1},{trigger:'#sclFrame',start:'top bottom',end:'bottom top'});
+Motion.cascade('.scl-tx>*');
+Motion.cascade('.trio>div,.scl-card .tx,.ap,.brands,.rec,.tl .step,.feats>div,.corebox,.yl li,.cgrid .cert,.ct-info .r,.ct-info .h2,form,.nums>div,.next .tx>*');
+Motion.parallax('.makers img',6);
 Motion.chars('.split');
 Motion.scrub($('.makers figure:nth-child(2)'),{y:40},{y:-40},{trigger:'.makers'});
 Motion.scrub($('.hbox'),{scale:.96},{scale:1},{trigger:'.health',start:'top bottom',end:'top 40%'});

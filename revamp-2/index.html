@@ -6,7 +6,6 @@
 <title>Shimlen · Revamp 2 · Heartwood</title>
 <meta name="description" content="Since 1980: the boards behind Malaysia's custom-made furniture. Plywood, MFC, HPL, edgeband, acoustic and lacquered panels from Semenyih, Selangor.">
 <link rel="icon" href="../img/logo-mark.svg">
-<script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&location.search.indexOf('shot')<0)document.documentElement.classList.add('rx-loading')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared/base.css">
@@ -38,22 +37,20 @@ section{position:relative;padding:var(--pad) 0}
 .btn-solid:hover{background:var(--acc)}
 .cream .btn-solid{background:var(--ink);color:#fff}
 
-/* header */
-#hdr{position:fixed;top:0;left:0;right:0;height:var(--hh);z-index:60;transition:background .45s,border-color .45s,transform .5s var(--ease);border-bottom:1px solid transparent;color:var(--fg);--logo-a:#F1EAE3;--logo-b:#C4B0A5}
-#hdr.scrolled{background:rgba(35,29,27,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-color:var(--line)}
-#hdr.hide{transform:translateY(-100%)}
-.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.nav .logo{width:142px}
-.nav-links{display:flex;gap:clamp(14px,1.8vw,28px);font-size:14px}
-.nav-links a{position:relative;display:flex;align-items:baseline;gap:7px;color:var(--fg2);transition:color .3s;padding:6px 0}
-.nav-links a i{font-family:Fraunces,serif;font-style:italic;font-size:13px;color:var(--acc)}
-.nav-links a:hover,.nav-links a.active{color:var(--fg)}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-.nav-links a.active::after{transform:scaleX(1)}
-.nav-r{display:flex;align-items:center;gap:12px}
-.nav-r .btn-solid{padding:11px 18px;font-size:14px}
-.burger{display:none;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);place-items:center}
+/* header: chapters either side, the SHIMLEN wordmark shrinks into the middle; it never hides */
+#hdr{position:fixed;top:0;left:0;right:0;height:var(--hh);z-index:60;transition:background .4s,border-color .4s;border-bottom:1px solid transparent;color:var(--fg)}
+#hdr.hide{transform:none}
+#hdr.solid{background:rgba(35,29,27,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-color:var(--line)}
+.nav{height:100%;display:grid;grid-template-columns:1fr 180px 1fr;align-items:center;gap:20px}
+.nav-l,.nav-r{display:flex;gap:2px;font-size:14px}
+.nav-r{justify-content:flex-end}
+.nav-l a,.nav-r a{padding:8px 13px;border-radius:99px;transition:background .3s;color:var(--fg2)}
+.nav-l a i,.nav-r a i{font-family:Fraunces,serif;font-style:italic;font-size:13px;color:var(--acc);margin-right:6px}
+.nav-l a:hover,.nav-r a:hover,.nav a.active{background:rgba(241,234,227,.1);color:var(--fg)}
+.burger{display:none;justify-self:end;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);place-items:center}
 .burger span{display:block;width:18px;height:1.5px;background:currentColor;margin:3px auto;transition:transform .3s}
+#wm{position:fixed;left:50%;top:0;z-index:61;color:var(--cream);transform-origin:50% 0;will-change:transform,width;pointer-events:none}
+#wm a{pointer-events:auto;display:block}
 .menu{position:fixed;inset:0;background:var(--bg);z-index:55;padding:calc(var(--hh) + 30px) 24px 40px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
 .menu a{font-family:Fraunces,serif;font-weight:300;font-size:32px;padding:10px 0;border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:baseline}
 .menu a i{font-size:16px;color:var(--acc);min-width:2.2em}
@@ -73,18 +70,31 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .runner.lt .t{color:#51494A}.runner.lt .p{background:rgba(35,31,32,.14)}.runner.lt .n{color:#867774}.runner.lt .p b{background:#867774}
 @media (min-width:1400px){.runner{display:flex}}
 
-/* hero: the title page */
-.hero{min-height:100svh;padding:calc(var(--hh) + 30px) 0 0;display:flex;flex-direction:column}
-.h-grid{flex:1;display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,5vw,90px);align-items:center}
-.hero .label{margin-bottom:28px}
-.hero h1{font-size:clamp(46px,5.6vw,92px);max-width:13ch}
-.hero h1 em{font-style:italic;color:var(--acc)}
-.hero .lead{margin-top:26px;max-width:44ch}
-.ctas{display:flex;flex-wrap:wrap;align-items:center;gap:22px;margin-top:34px}
-.h-arch{position:relative;justify-self:end;width:100%;max-width:470px;height:min(70svh,680px);min-height:440px}
-.h-arch::before{content:"";position:absolute;inset:-14px;border:1px solid rgba(196,176,165,.45);border-radius:999px 999px 14px 14px;pointer-events:none}
-.h-arch .reel{position:absolute;inset:0;border-radius:999px 999px var(--r) var(--r);overflow:hidden;background:var(--wal)}
-.h-arch .rnd::after,.nx-pic .rnd::after,.arch.rnd::after,.arch .smp::after,.arch.smp::after{top:auto;bottom:14px;right:50%;transform:translateX(50%)}
+/* hero: tree rings draw in, the wordmark shrinks into the navbar, the arch opens onto the new building at night */
+.hero{height:220vh;padding:0}
+.h-stick{position:sticky;top:0;height:100svh;overflow:hidden}
+.h-arch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:var(--aw,64vw);height:var(--ah,60vh);border-radius:var(--ar,32vw 32vw 0 0);overflow:hidden;z-index:2}
+.h-arch .reel{position:absolute;inset:0}
+.h-arch .shade{position:absolute;inset:0;z-index:3;background:linear-gradient(0deg,rgba(28,22,20,.94),rgba(28,22,20,.72) 32%,rgba(28,22,20,.08) 68%),linear-gradient(90deg,rgba(28,22,20,.45),rgba(28,22,20,0) 60%);opacity:var(--sh,0);pointer-events:none}
+.h-arch .rnd::after{top:auto;bottom:12px;right:16px;left:auto;transform:none}
+.rings{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:120vw;height:auto;z-index:1;pointer-events:none;opacity:var(--ro,1)}
+.rings path{fill:none;stroke:rgba(196,176,165,.28);stroke-width:1;stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 2.6s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+html.is-loading .rings path{animation-play-state:paused}
+.h-intro{position:absolute;left:0;right:0;top:var(--it,40vh);z-index:3;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--fg2);opacity:var(--io,1)}
+.h-intro b{font-weight:400;color:var(--fg)}
+.scroll-cue{display:flex;gap:10px;align-items:center}
+.scroll-cue i{width:1px;height:30px;background:var(--line);position:relative;overflow:hidden}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:-30px;width:1px;height:30px;background:var(--fg);animation:cue 2s var(--ease) infinite}
+@keyframes cue{to{top:30px}}
+.h-copy{position:absolute;left:0;right:0;bottom:clamp(40px,7vh,80px);z-index:4;opacity:var(--co,0);transform:translateY(calc((1 - var(--co,0))*30px));pointer-events:var(--pe,none)}
+.h-copy .row{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end}
+.h-copy h1{font-size:clamp(40px,5.2vw,82px);max-width:14ch;color:#fff}
+.h-copy h1 em{font-style:italic;color:var(--acc)}
+.h-copy .lead{color:rgba(255,255,255,.88);margin-bottom:22px}
+.h-copy .btns{display:flex;gap:26px;flex-wrap:wrap;color:#fff}
+.cbar{border-bottom:1px solid var(--line)}
+.cbar .contents{margin-top:0;border-top:0}
 .contents{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line);margin-top:clamp(40px,5vw,70px)}
 .contents a{padding:20px 18px 26px 0;display:flex;flex-direction:column;gap:4px;transition:color .3s}
 .contents a+a{padding-left:18px;border-left:1px solid var(--line)}
@@ -122,9 +132,17 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .pillars img{width:22px;height:22px;object-fit:contain}
 
 /* II · range: a list of names; the picture follows the pointer */
-.range{display:grid;grid-template-columns:4fr 8fr;gap:clamp(30px,5vw,90px);align-items:start}
-.range .side{position:sticky;top:calc(var(--hh) + 30px)}
-.range .side .lead{margin:16px 0 28px}
+.rtop{display:grid;grid-template-columns:5fr 7fr;gap:clamp(30px,5vw,90px);align-items:start;margin-bottom:clamp(44px,5vw,80px)}
+.rtop .lead{margin-top:16px}
+.range{display:grid;grid-template-columns:8fr 4fr;gap:clamp(30px,4vw,70px);align-items:start}
+.rpv{position:sticky;top:calc(var(--hh) + 30px)}
+.rpic{aspect-ratio:3/4;background:var(--wal2)}
+.rpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .6s,transform 1.2s var(--ease)}
+.rpic img.on{opacity:1;transform:none}
+.rcap{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin-top:16px;align-items:baseline}
+.rcap i{font-family:Fraunces,serif;font-size:15px;color:var(--acc);grid-row:span 2}
+.rcap b{font-family:Fraunces,serif;font-weight:300;font-size:22px;line-height:1.15}
+.rcap span{font-size:13px;color:var(--mut)}
 .pidx{list-style:none;border-top:1px solid var(--line)}
 .pidx button{width:100%;display:grid;grid-template-columns:44px 1fr auto;gap:18px;align-items:center;text-align:left;padding:22px 4px;border-bottom:1px solid var(--line);transition:padding .5s var(--ease),color .3s}
 .pidx .no{font-family:Fraunces,serif;font-style:italic;font-size:15px;color:var(--acc)}
@@ -132,11 +150,9 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .pidx .br{display:block;font-family:"Helvetica Neue",sans-serif;font-size:13px;color:var(--mut);letter-spacing:0;margin-top:6px}
 .pidx .ring{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:background .35s,color .35s,transform .35s var(--ease)}
 .pidx .th{display:none}
-.pidx button:hover{padding-left:16px}
+.pidx button:hover,.pidx button.on{padding-left:16px}
+.pidx button.on .nm{color:var(--fg)}
 .pidx button:hover .ring{background:var(--fg);color:var(--bg);transform:rotate(-45deg);border-color:var(--fg)}
-.pv{position:fixed;left:0;top:0;width:240px;height:310px;z-index:45;pointer-events:none;opacity:0;transform:scale(.85);transition:opacity .35s,transform .45s var(--ease);border-radius:999px 999px 8px 8px;overflow:hidden;background:var(--wal2)}
-.pv.on{opacity:1;transform:none}
-.pv img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .logos{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin-top:clamp(48px,5vw,80px)}
 .logos div{background:var(--cream);border-radius:var(--r);height:84px;display:grid;place-items:center;padding:12px}
 .logos img{max-height:38px;max-width:100%;width:auto;object-fit:contain}
@@ -183,6 +199,7 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .record .crt:hover span{color:var(--fg);text-decoration:underline}
 .wh{display:grid;grid-template-columns:5fr 7fr;gap:clamp(30px,5vw,90px);align-items:end}
 .wh .h2{margin:14px 0 16px}
+.wh .sq{font-family:Fraunces,serif;font-style:italic;font-weight:300;font-size:clamp(20px,1.8vw,26px);line-height:1.3;color:var(--acc);margin-bottom:14px;max-width:26ch}
 .wh ul{list-style:none;margin-top:26px;border-top:1px solid var(--line)}
 .wh li{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
 .wh li .ic{color:var(--acc);width:22px;height:22px}
@@ -192,16 +209,15 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .trip figure:nth-child(2) .arch{height:clamp(320px,38vw,560px)}
 .trip img{width:100%;height:100%;object-fit:cover;filter:saturate(.7) sepia(.12)}
 .trip figcaption{font-family:Fraunces,serif;font-style:italic;font-size:14px;color:var(--mut);margin-top:10px;text-align:center}
-.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px);margin-top:clamp(80px,9vw,140px)}
-.wall-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-top:clamp(80px,9vw,140px)}
-.wall-h+.wall{margin-top:36px}
-.frm{display:flex;flex-direction:column;gap:14px;text-align:center}
-.frm .mat{background:var(--cream);padding:22px;border-radius:2px;box-shadow:0 0 0 8px var(--wal2),0 0 0 9px rgba(196,176,165,.35);aspect-ratio:4/5;display:grid;place-items:center;transition:transform .5s var(--ease)}
+.recog{display:grid;grid-template-columns:4fr 8fr;gap:clamp(30px,5vw,80px);align-items:center;margin-top:clamp(80px,9vw,140px)}
+.wall{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(18px,2vw,30px);max-width:760px;justify-self:end;width:100%}
+.frm{display:flex;flex-direction:column;gap:6px;text-align:center}
+.frm .mat{background:var(--cream);padding:12px;border-radius:2px;box-shadow:0 0 0 6px var(--wal2),0 0 0 7px rgba(196,176,165,.35);margin-bottom:8px;aspect-ratio:4/5;display:grid;place-items:center;transition:transform .5s var(--ease)}
 .frm:hover .mat{transform:translateY(-4px)}
 .frm .mat img{max-width:100%;max-height:100%;object-fit:contain;box-shadow:0 6px 16px rgba(0,0,0,.18)}
-.frm .yr{font-family:Fraunces,serif;font-style:italic;color:var(--acc);margin-top:10px}
-.frm b{font-weight:500;font-size:15px;line-height:1.3}
-.frm span{font-size:13px;color:var(--mut)}
+.frm .yr{font-family:Fraunces,serif;font-style:italic;font-size:14px;color:var(--acc)}
+.frm b{font-weight:500;font-size:13.5px;line-height:1.3}
+.frm span{font-size:12px;color:var(--mut);line-height:1.4}
 
 /* V · next */
 .nx{padding-bottom:0}
@@ -254,18 +270,18 @@ footer ul a:hover{color:var(--fg)}
 .f-wm{color:var(--fg);opacity:.92;margin-top:clamp(44px,6vw,80px)}
 .f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--mut);padding:22px 0 6px;border-top:1px solid var(--line);margin-top:18px}
 
-@media (max-width:1200px){.nav-links{display:none}.burger{display:grid}}
-@media (max-width:1000px){.logos{grid-template-columns:repeat(4,1fr)}.wall{grid-template-columns:1fr 1fr;row-gap:44px}}
+@media (max-width:1180px){.nav-l a,.nav-r a{padding:8px 8px;font-size:13px}}
+@media (max-width:1080px){.nav-l,.nav-r{display:none}.nav{grid-template-columns:44px 1fr 44px}.burger{display:grid;grid-column:3}}
+@media (max-width:1000px){.logos{grid-template-columns:repeat(4,1fr)}.recog{grid-template-columns:1fr}.wall{justify-self:start}}
 @media (max-width:900px){
   :root{--pad:clamp(70px,11vw,100px)}
   .nav-r .btn-solid{display:none}
-  .h-grid,.roots,.range,.euc,.wh,.nx-copy,.ct,.lfh{grid-template-columns:1fr}
-  .h-arch{order:-1;justify-self:center;height:auto;aspect-ratio:4/5;max-width:420px;min-height:0;margin-top:10px}
+  .roots,.range,.euc,.wh,.nx-copy,.ct,.lfh{grid-template-columns:1fr}
   .contents{grid-template-columns:1fr 1fr}
   .contents a:nth-child(odd){padding-left:0;border-left:0}
   .contents a:nth-child(n+3){border-top:1px solid var(--line)}
   .contents a:last-child{grid-column:1/-1}
-  .range .side{position:relative;top:0}
+  .rtop{grid-template-columns:1fr}
   .roots .pic{max-width:420px}
   .arches{grid-template-columns:1fr}
   .ah{padding-top:clamp(60px,14vw,90px)}
@@ -274,12 +290,24 @@ footer ul a:hover{color:var(--fg)}
   .views{grid-template-columns:1fr 1fr}.views figure:nth-child(3){display:none}
   .f-top{grid-template-columns:1fr 1fr}
 }
-@media (hover:none),(max-width:900px){.pidx button{grid-template-columns:64px 1fr auto}.pidx .no{display:none}.pidx .th{display:block;width:64px;height:80px;border-radius:999px 999px 4px 4px;overflow:hidden;position:relative}.pidx .th img{width:100%;height:100%;object-fit:cover}.pv{display:none}}
+@media (hover:none),(max-width:900px){.pidx button{grid-template-columns:64px 1fr auto}.pidx .no{display:none}.pidx .th{display:block;width:64px;height:80px;border-radius:999px 999px 4px 4px;overflow:hidden;position:relative}.pidx .th img{width:100%;height:100%;object-fit:cover}.rpv{display:none}.range{grid-template-columns:1fr}}
+@media (max-width:860px){
+  .hero{height:auto}
+  .h-stick{position:relative;height:auto;overflow:hidden;padding-top:var(--wmspace,170px)}
+  .h-intro{position:relative;top:auto;padding:0 16px 14px;opacity:1}
+  .h-arch{position:relative;left:0;transform:none;width:calc(100vw - 32px);height:60svh;min-height:400px;margin:0 auto;border-radius:46vw 46vw var(--r) var(--r)}
+  .h-arch .shade{opacity:0}
+  .h-copy{position:relative;bottom:auto;opacity:1;transform:none;pointer-events:auto;padding:28px 0 40px}
+  .h-copy .row{grid-template-columns:1fr;gap:16px}
+  .h-copy h1{color:var(--fg)}.h-copy .lead{color:var(--fg2)}.h-copy .btns{color:var(--fg)}
+  .rings{width:200vw;bottom:auto;top:22vh}
+}
 @media (max-width:560px){
   .print{right:-6px;width:140px}
   :root{--hh:68px;--wrap:calc(100vw - 32px)}
   .nav .logo{width:122px}
-  .hero h1{font-size:clamp(40px,11vw,52px)}
+  .h-copy h1{font-size:clamp(36px,10.4vw,46px)}
+  .h-intro span:last-child{display:none}
   .op{grid-template-columns:1fr;gap:10px}
   .op .n{font-size:110px}
   .pillars{grid-template-columns:1fr}
@@ -287,7 +315,7 @@ footer ul a:hover{color:var(--fg)}
   .legend{grid-template-columns:1fr}
   .trip{grid-template-columns:1fr}.trip figure:nth-child(1){display:none}.trip .arch,.trip figure:nth-child(2) .arch{height:auto;aspect-ratio:4/5}
   .views{grid-template-columns:1fr}.views figure:nth-child(2){display:none}
-  .wall{grid-template-columns:1fr 1fr;gap:28px 18px}.frm .mat{padding:12px;box-shadow:0 0 0 5px var(--wal2),0 0 0 6px rgba(196,176,165,.35)}
+  .wall{grid-template-columns:1fr 1fr;gap:28px 22px}
   form{grid-template-columns:1fr}
   .f-top{grid-template-columns:1fr}
   .map{height:320px}
@@ -296,11 +324,11 @@ footer ul a:hover{color:var(--fg)}
 </head>
 <body>
 <header id="hdr"><div class="wrap nav">
-  <a href="#top" aria-label="Shimlen home" id="hLogo"></a>
-  <nav class="nav-links" id="navLinks" aria-label="Chapters"></nav>
-  <div class="nav-r"><a href="#contact" class="btn btn-solid">Enquire</a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
+  <nav class="nav-l nav-links" id="navL" aria-label="Chapters"></nav><span></span>
+  <nav class="nav-r nav-links" id="navR" aria-label="More chapters"></nav>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
+<div id="wm"><a href="#top" aria-label="Shimlen home"></a></div>
 <nav class="menu" id="menu" aria-label="Menu"></nav>
 <aside class="runner" id="runner" aria-hidden="true"><span class="n">I</span><span class="p"><b></b></span><span class="t">Roots</span></aside>
 <main id="app"></main>
@@ -320,23 +348,29 @@ footer ul a:hover{color:var(--fg)}
 const {ic,R}=Core, S=SH, P=S.products.list, Y=S.story.years, $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const CH=[['I','Roots','1980 – 1990','about'],['II','Range','2012 – 2020','products'],['III','Health','2017 – 2023','low-formaldehyde'],['IV','Scale','2021 – 2025','warehouse'],['V','Next','Today','new-home']];
 const navHtml=CH.map(([n,t,,id])=>`<a href="#${id}"><i>${n}</i>${t}</a>`).join('')+`<a href="#contact"><i>·</i>Contact</a>`;
-$('#navLinks').innerHTML=navHtml; $('#menu').innerHTML=navHtml; $('#hLogo').innerHTML=SHIMLEN_LOGO;
+const navA=[...CH.map(([n,t,,id])=>`<a href="#${id}"><i>${n}</i>${t}</a>`),`<a href="#contact"><i>·</i>Contact</a>`];
+$('#navL').innerHTML=navA.slice(0,3).join(''); $('#navR').innerHTML=navA.slice(3).join(''); $('#menu').innerHTML=navHtml; $('#wm a').innerHTML=SHIMLEN_WORDMARK;
+/* tree-ring line art: wobbly concentric half-rings, seeded so it draws the same every time */
+function rings(n=13,w=1600,h=800,seed=7){let s=seed;const rnd=()=>(s=(s*9301+49297)%233280)/233280;
+  let out='';for(let k=1;k<=n;k++){const r=k*(h/n)*.98,pts=[];const ph=rnd()*6,amp=2+k*.9;
+    for(let a=0;a<=180;a+=4){const t=a*Math.PI/180,rr=r+Math.sin(t*5+ph)*amp+Math.sin(t*11+ph*2)*amp*.4;pts.push([w/2+Math.cos(Math.PI-t)*rr,h-Math.sin(t)*rr])}
+    out+=`<path d="M${pts.map(p=>p.map(v=>v.toFixed(1)).join(' ')).join(' L')}" style="--len:${Math.round(Math.PI*r*1.15)};animation-delay:${(k*.07).toFixed(2)}s"/>`}
+  return `<svg class="rings" viewBox="0 0 ${w} ${h}" aria-hidden="true">${out}</svg>`}
 const chron=ix=>`<ol class="chron">${ix.map(i=>`<li><span class="y">${Y[i][0]}</span><div><b>${Y[i][1]}</b><p>${Y[i][2]}</p></div></li>`).join('')}</ol>`;
 const op=(k,title)=>`<header class="op"><span class="n">${CH[k][0]}</span><div><div class="label">Chapter ${['one','two','three','four','five'][k]} · ${CH[k][2]}</div><h2 class="serif">${title}</h2></div></header>`;
 
 $('#app').innerHTML=`
-<section class="hero" id="top"><div class="wrap" style="display:flex;flex-direction:column;flex:1">
-  <div class="h-grid">
-    <div class="h-copy">
-      <div class="label">Shimlen · ${S.hero.eyebrow}</div>
-      <h1 class="serif">Forty-five years of the boards behind <em>Malaysia’s</em> furniture.</h1>
-      <p class="lead">${S.hero.h1.replace('.','')}: ${S.hero.lead.charAt(0).toLowerCase()+S.hero.lead.slice(1)}</p>
-      <div class="ctas"><a href="#about" class="btn"><span class="ring">${ic('arrow')}</span>Begin with chapter one</a><a href="#contact" class="btn btn-solid">Enquire</a></div>
-    </div>
-    <div class="h-arch"><div class="reel" id="rReel"></div></div>
-  </div>
-  <nav class="contents" aria-label="Contents">${CH.map(([n,t,y,id])=>`<a href="#${id}"><i>${n}</i><b>${t}</b><span>${y}</span></a>`).join('')}</nav>
+<section class="hero" id="top"><div class="h-stick" id="hStick">
+  ${rings()}
+  <div class="wrap h-intro" id="hIntro"><span><b>${S.hero.eyebrow}</b></span><span class="scroll-cue">Scroll to enter <i></i></span></div>
+  <div class="h-arch" id="hArch"><div class="reel" id="rReel"></div><div class="shade"></div></div>
+  <div class="h-copy"><div class="wrap row">
+    <h1 class="serif">Forty-five years of the boards behind <em>Malaysia’s</em> furniture.</h1>
+    <div><p class="lead">${S.hero.h1.replace('.','')}: ${S.hero.lead.charAt(0).toLowerCase()+S.hero.lead.slice(1)}</p>
+      <div class="btns"><a href="#about" class="btn"><span class="ring">${ic('arrow')}</span>Begin with chapter one</a><a href="#contact" class="btn"><span class="ring">${ic('arrow')}</span>Enquire</a></div></div>
+  </div></div>
 </div></section>
+<div class="cbar"><nav class="wrap contents" aria-label="Contents">${CH.map(([n,t,y,id])=>`<a href="#${id}"><i>${n}</i><b>${t}</b><span>${y}</span></a>`).join('')}</nav></div>
 
 <section class="ch" id="about" data-ch="0"><div class="wrap">
   ${op(0,'Roots')}
@@ -352,9 +386,11 @@ $('#app').innerHTML=`
 
 <section class="ch wal" id="products" data-ch="1"><div class="wrap">
   ${op(1,'The <em>range</em>')}
+  <div class="rtop"><div><h3 class="serif h2" style="font-size:clamp(30px,2.8vw,44px)">${S.products.h2}</h3><p class="lead">${S.about.tabs[1][1].split('. ').slice(0,1).join('')}.</p></div>${chron([3,4,5,7,8])}</div>
   <div class="range">
-    <div class="side"><h3 class="serif h2" style="font-size:clamp(30px,2.8vw,42px)">${S.products.h2}</h3><p class="lead">${S.about.tabs[1][1].split('. ').slice(0,1).join('')}.</p>${chron([3,4,5,7,8])}</div>
-    <ol class="pidx" id="pidx">${P.map((p,i)=>`<li><button data-p="${i}" data-img="${RX.use(i)}"><span class="no">${String(i+1).padStart(2,'0')}</span><span class="th" data-notag><img src="${RX.use(i)}" alt="" loading="lazy"></span><span class="nm">${p.n}<span class="br">${p.b}</span></span><span class="ring">${ic('arrow')}</span></button></li>`).join('')}</ol>
+    <ol class="pidx" id="pidx">${P.map((p,i)=>`<li><button data-p="${i}" data-i="${i}"><span class="no">${String(i+1).padStart(2,'0')}</span><span class="th" data-notag><img src="${RX.use(i)}" alt="" loading="lazy"></span><span class="nm">${p.n}<span class="br">${p.b}</span></span><span class="ring">${ic('arrow')}</span></button></li>`).join('')}</ol>
+    <aside class="rpv" aria-hidden="true"><div class="rpic arch">${P.map((p,i)=>`<img src="${RX.use(i)}" alt="" loading="lazy" class="${i?'':'on'}">`).join('')}</div>
+      <div class="rcap"><i id="rpvNo">01</i><b id="rpvN">${P[0].n}</b><span id="rpvB">${P[0].b}</span></div></aside>
   </div>
   <div class="logos" id="brands">${S.brands.map(([img,n,c])=>`<div><img class="${c||''}" src="${R}img/${img}" alt="${n}" loading="lazy"></div>`).join('')}</div>
 </div></section>
@@ -381,14 +417,14 @@ $('#app').innerHTML=`
     <p>${S.lf.record.h}.</p>
     <button class="crt" data-lb="rec" data-src="${R}${S.lf.record.img}" data-cap="The Malaysia Book of Records, 2025"><img src="${R}${S.lf.record.img}" alt="Certificate"><span>See the certificate</span></button></div>
   <div class="wh">
-    <div><div class="label">${S.warehouse.eyebrow}</div><h3 class="serif h2 split">${S.warehouse.h2}</h3><p class="lead">${S.warehouse.lead}</p>
+    <div><div class="label">${S.warehouse.eyebrow}</div><h3 class="serif h2 split">${S.warehouse.h2}</h3><p class="sq">10,000 m² under one roof: ${RX.SCALE.sqft}, ${RX.SCALE.pitch}.</p><p class="lead">${S.warehouse.lead}</p>
       <ul>${S.warehouse.points.map(([i,t])=>`<li>${ic('i-'+i)}${t}</li>`).join('')}</ul></div>
-    <div class="trip"><figure><div class="arch"><img src="${RX.stock('lumber.jpg')}" alt="Timber racked and ready" loading="lazy"></div><figcaption>Racked and ready</figcaption></figure>
-      <figure><div class="arch"><img src="${RX.stock('wh-people.jpg')}" alt="Inside a large warehouse" loading="lazy"></div><figcaption>Ten thousand square metres</figcaption></figure>
-      <figure><div class="arch"><img src="${RX.stock('boards.jpg')}" alt="Boards stacked by thickness" loading="lazy"></div><figcaption>Stacked by thickness</figcaption></figure></div>
+    <div class="trip"><figure><div class="arch"><img src="${RX.stock('board-stack.jpg')}" alt="Boards stacked high in a warehouse" loading="lazy"></div><figcaption>Stacked to the roof</figcaption></figure>
+      <figure><div class="arch"><img src="${RX.stock('aisle.jpg')}" alt="Wrapped panels in a long warehouse aisle" loading="lazy"></div><figcaption>Aisle after aisle of ready stock</figcaption></figure>
+      <figure><div class="arch"><img src="${RX.stock('forklift.jpg')}" alt="A forklift driver moving timber" loading="lazy"></div><figcaption>Moved by people who know boards</figcaption></figure></div>
   </div>
-  <div class="wall-h" id="recognition"><div><div class="label">${S.certs.eyebrow}</div><h3 class="serif h2 split" style="margin-top:14px">${S.certs.h2}</h3></div><p class="lead" style="color:var(--mut)">${S.certs.lead}</p></div>
-  <div class="wall">${S.certs.list.slice().reverse().map(c=>`<button class="frm" data-lb="certs" data-src="${R}${c.src}" data-cap="${c.h} · ${c.yr}"><div class="mat"><img src="${R}${c.src}" alt="${c.h}" loading="lazy"></div><div class="yr">${c.yr}</div><b>${c.h}</b><span>${c.p}</span></button>`).join('')}</div>
+  <div class="recog" id="recognition"><div><div class="label">${S.certs.eyebrow}</div><h3 class="serif h2 split" style="margin-top:14px">${S.certs.h2}</h3><p class="lead" style="color:var(--mut);margin-top:14px">${S.certs.lead}</p></div>
+    <div class="wall">${S.certs.list.slice().reverse().map(c=>`<button class="frm" data-lb="certs" data-src="${R}${c.src}" data-cap="${c.h} · ${c.yr}"><div class="mat"><img src="${R}${c.src}" alt="${c.h}" loading="lazy"></div><div class="yr">${c.yr}</div><b>${c.h}</b><span>${c.p}</span></button>`).join('')}</div></div>
 </div></section>
 
 <section class="ch wal nx" id="new-home" data-ch="4"><div class="wrap">
@@ -430,13 +466,31 @@ RX.reel('nReel','slow',['new-corner-tropical.jpg','new-front-dusk.jpg']);
 RX.tag();
 Core.init();
 
-/* the picture that follows the pointer over the product names */
-(function(){if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
-  const pv=document.createElement('div');pv.className='pv';pv.innerHTML='<img alt="">';document.body.appendChild(pv);const im=pv.querySelector('img');
-  let x=0,y=0,cx=0,cy=0,on=false;
-  $$('#pidx button').forEach(b=>{b.addEventListener('pointerenter',()=>{im.src=b.dataset.img;pv.classList.add('on');on=true});b.addEventListener('pointerleave',()=>{pv.classList.remove('on');on=false})});
-  addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY},{passive:true});
-  (function f(){cx+=(x-cx)*.14;cy+=(y-cy)*.14;pv.style.transform=`translate(${cx+28}px,${cy-155}px)`+(on?'':' scale(.85)');requestAnimationFrame(f)})()})();
+/* the preview in the right third follows the name under the pointer */
+(function(){const ims=$$('.rpic img'),bs=$$('#pidx button');
+  bs.forEach(b=>b.addEventListener('pointerenter',()=>{const i=+b.dataset.i;bs.forEach(x=>x.classList.toggle('on',x===b));ims.forEach((im,k)=>im.classList.toggle('on',k===i));
+    $('#rpvNo').textContent=String(i+1).padStart(2,'0');$('#rpvN').textContent=P[i].n;$('#rpvB').textContent=P[i].b}))})();
+
+/* hero choreography: the wordmark shrinks from full width into the middle of the navbar while the arch opens */
+(function(){const st=$('#hStick'),hero=$('#top'),wm=$('#wm'),hdr=$('#hdr'),intro=$('#hIntro');
+  const RATIO=36.4/310;let L={};
+  const lay=()=>{const W=innerWidth,H=innerHeight,hh=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hh'))||72,mob=W<=860;
+    const w0=Math.min(W*(mob?.92:.94),1500),h0=w0*RATIO,top0=hh+(mob?6:10),w1=mob?118:150,h1=w1*RATIO,top1=(hh-h1)/2;
+    const introTop=top0+h0+16,archTop=introTop+(mob?0:intro.offsetHeight)+22;
+    L={W,H,hh,mob,w0,h0,top0,w1,top1,ah0:Math.max(H*.42,H-archTop)};
+    if(mob){st.style.setProperty('--wmspace',(top0+h0+14)+'px')}else{st.style.setProperty('--it',introTop+'px')}};
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+  const set=()=>{const y=scrollY;let q,e=0;
+    if(L.mob){q=Math.min(1,Math.max(0,y/(L.top0+L.h0)))}
+    else{const p=Math.min(1,Math.max(0,y/(hero.offsetHeight-L.H)));e=ease(p);q=Math.min(1,e*1.35);
+      const aw=.64*L.W+(L.W-.64*L.W)*e,ah=L.ah0+(L.H-L.ah0)*e,rr=(1-e)*aw/2;
+      st.style.setProperty('--aw',aw+'px');st.style.setProperty('--ah',ah+'px');st.style.setProperty('--ar',`${rr}px ${rr}px 0 0`);
+      st.style.setProperty('--sh',Math.min(1,e*1.4));st.style.setProperty('--co',Math.max(0,(e-.55)/.45));st.style.setProperty('--pe',e>.7?'auto':'none');
+      st.style.setProperty('--io',Math.max(0,1-e*3));st.style.setProperty('--ro',Math.max(0,1-e*1.6))}
+    const qq=ease(q),w=L.w0+(L.w1-L.w0)*qq,t=L.top0+(L.top1-L.top0)*qq;
+    wm.style.width=w+'px';wm.style.transform=`translate(-50%,${t}px)`;
+    hdr.classList.toggle('solid',q>=.98||y>hero.offsetHeight-L.H-10)};
+  lay();set();addEventListener('resize',()=>{lay();set()});document.addEventListener('pagescroll',set);addEventListener('scroll',set,{passive:true})})();
 
 /* the running chapter at the edge of the page */
 (function(){const run=$('#runner'),n=run.querySelector('.n'),t=run.querySelector('.t'),chs=$$('[data-ch]');
@@ -449,20 +503,15 @@ Core.init();
 
 /* ---- motion: Heartwood turns its pages ---- */
 $$('#pidx button').forEach(e=>e.dataset.cursor='Open');
+$$('.rings').forEach(r=>Motion.scrub(r,{rotate:0},{rotate:6},{trigger:'.hero',start:'top top',end:'bottom top'}));
 $$('.frm,.proof button,.euc .lay,.record .crt').forEach(e=>e.dataset.cursor='Zoom');
 $$('.hero,.ch:not(.cream),footer').forEach(e=>e.setAttribute('data-cur-dark',''));
-if(Motion.ok){gsap.set('.h-copy>*,.contents a',{opacity:0,y:30});gsap.set('.h-arch .reel',{clipPath:'inset(100% 0% 0% 0%)'});gsap.set('#rReel figure img',{scale:1.25})}
-RX.loader('chapter',{preload:['img/renders/new-night.jpg'],min:2600,done(){if(!Motion.ok)return;
-  gsap.to('.h-arch .reel',{clipPath:'inset(0% 0% 0% 0%)',duration:1.6,ease:'expo.inOut',delay:.2});
-  gsap.to('#rReel figure img',{scale:1,duration:2.6,ease:'power3.out',delay:.2});
-  gsap.to('.h-copy>*',{opacity:1,y:0,duration:1.2,ease:'expo.out',stagger:.12,delay:.5});
-  gsap.to('.contents a',{opacity:1,y:0,duration:1,ease:'expo.out',stagger:.07,delay:.9})}});
-Motion.init({intro:'none'});
+Motion.init({intro:'rings'});
 /* chapter numerals draw on and the titles rise */
 if(Motion.ok)$$('.op').forEach(o=>{gsap.fromTo(o.querySelector('.n'),{yPercent:30,opacity:0},{yPercent:0,opacity:1,ease:'none',scrollTrigger:{trigger:o,start:'top 95%',end:'top 55%',scrub:.4}});});
 Motion.chars('.split');
 Motion.masks('.roots .pic,.ah,.euc .pic,.trip .arch,.frm .mat,.views .im,.map');
-Motion.cascade('.op h2,.op .label,.chron li,.pidx li,.logos div,.pillars div,.big,.lf-note,.feats li,.legend,.proof,.wh li,.record .u,.record p,.record .crt,.frm b,.frm span,.frm .yr,.ct dl>div,form,.nx-copy .lead,.lfh .lead,.roots .lead');
+Motion.cascade('.contents a,.rcap,.op h2,.op .label,.chron li,.pidx li,.logos div,.pillars div,.big,.lf-note,.feats li,.legend,.proof,.wh li,.record .u,.record p,.record .crt,.frm b,.frm span,.frm .yr,.ct dl>div,form,.nx-copy .lead,.lfh .lead,.roots .lead');
 Motion.parallax('.roots .pic img,.trip img',6);
 /* the next home grows out of its arch as you scroll */
 if(Motion.ok&&innerWidth>900)gsap.fromTo('#nxPic',{width:'min(820px,100%)',borderRadius:'999px 999px 0px 0px'},{width:'100%',borderRadius:'24px 24px 0px 0px',ease:'none',scrollTrigger:{trigger:'#nxPic',start:'top 80%',end:'top 10%',scrub:true}});

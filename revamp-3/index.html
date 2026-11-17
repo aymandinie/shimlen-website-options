@@ -38,7 +38,7 @@ section{position:relative;padding:var(--pad) 0}
 #hdr.hide{transform:none}
 .nav{height:100%;align-items:center}
 .nav .logo{width:118px}
-.nav-links{grid-column:4/10;display:flex;gap:clamp(12px,1.6vw,26px);font-size:12.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.nav-links{grid-column:3/10;display:flex;gap:clamp(10px,1.3vw,22px);white-space:nowrap;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
 .nav-links a{color:var(--mut);transition:color .2s;padding:6px 0}
 .nav-links a:hover,.nav-links a.active{color:var(--ink)}
 .nav-links a.active{box-shadow:inset 0 -1px 0 var(--ink)}
@@ -63,7 +63,7 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .meta{border-bottom:1px solid var(--line);padding-bottom:14px}
 .meta span:nth-child(1){grid-column:1/5}.meta span:nth-child(2){grid-column:5/9}.meta span:nth-child(3){grid-column:9/13;text-align:right}
 .hero h1{font-weight:500;font-size:clamp(56px,9.6vw,168px);line-height:.88;letter-spacing:-.06em;margin:clamp(22px,3vw,40px) 0 clamp(26px,3vw,44px)}
-.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.16em;margin-bottom:-.12em}
 .hero h1 .ln>span{display:block}
 .hero h1 .ln:nth-child(2){padding-left:calc((100% + var(--gut))/12*4)}
 .h-row{align-items:start}
@@ -80,6 +80,38 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .facts b{display:block;font-weight:500;font-size:clamp(26px,2.6vw,40px);letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .facts b small{font-size:.45em;letter-spacing:0;margin-left:3px;color:var(--mut)}
 .facts>div>span{font-size:13px;color:var(--mut);display:block;margin-top:8px}
+
+/* the range in one moving line of type, with pictures set into it */
+.band{overflow:hidden;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:clamp(26px,3vw,44px) 0;margin-top:clamp(50px,6vw,90px)}
+.bt{display:flex;align-items:center;gap:.28em;white-space:nowrap;font-weight:500;font-size:clamp(64px,10vw,176px);letter-spacing:-.06em;line-height:1;width:max-content;padding-left:clamp(16px,2.6vw,34px)}
+.bt .o{color:transparent;-webkit-text-stroke:1.4px var(--ink)}
+.bt figure{margin:0;width:1.5em;height:.9em;overflow:hidden;flex:none;position:relative}
+.bt figure img{width:100%;height:100%;object-fit:cover}
+.bt figure:nth-of-type(even){width:.9em;border-radius:50%}
+
+/* 02 · scale, on ink */
+.ink .sh{border-color:#ECE9E4}
+.ink .sh .no{color:#ECE9E4}
+.ink .h2{color:#F7F5F2}
+.scbig{align-items:end;margin-bottom:clamp(40px,5vw,80px)}
+.scbig .n{grid-column:1/9;font-weight:500;font-size:clamp(90px,17vw,300px);line-height:.8;letter-spacing:-.07em;color:#F7F5F2;font-variant-numeric:tabular-nums}
+.scbig .n small{font-size:.3em;letter-spacing:-.02em;margin-left:.08em;color:var(--stone)}
+.scbig .t{grid-column:9/13;padding-bottom:.6em}
+.scbig .t b{display:block;font-weight:500;font-size:clamp(20px,1.8vw,26px);letter-spacing:-.03em;line-height:1.2;color:#F7F5F2}
+.scbig .t p{font-size:15px;color:var(--fg2);margin-top:12px}
+.plates{row-gap:clamp(28px,3vw,44px);align-items:start}
+.pl{margin:0}
+.pl .im{position:relative;overflow:hidden;background:#2a2626}
+.pl .im img{width:100%;height:100%;object-fit:cover}
+.pl.a{grid-column:1/9}.pl.a .im{aspect-ratio:16/10}
+.pl.b{grid-column:9/13}.pl.b .im{aspect-ratio:3/4}
+.pl.c{grid-column:1/5}.pl.c .im{aspect-ratio:4/5}
+.pl.d{grid-column:5/13}.pl.d .im{aspect-ratio:16/10}
+.pl figcaption{display:flex;gap:14px;font-size:13px;color:var(--mut);padding-top:10px}
+.pl figcaption b{color:#F7F5F2;font-weight:500;white-space:nowrap}
+.pts{margin-top:clamp(40px,5vw,70px);border-top:1px solid rgba(236,233,228,.25)}
+.pts>div{grid-column:span 3;padding-top:16px;display:flex;flex-direction:column;gap:12px;font-size:15px;color:#ECE9E4}
+.pts .ic{width:24px;height:24px;color:var(--stone)}
 
 /* section heads */
 .sh{border-top:1px solid var(--ink);padding-top:14px;margin-bottom:clamp(36px,4vw,64px);row-gap:22px}
@@ -185,8 +217,9 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 /* 04 · applications */
 .apps{row-gap:clamp(30px,3vw,48px)}
 .fig{grid-column:span 4;margin:0}
-.fig .im{position:relative;aspect-ratio:4/5;overflow:hidden;background:#DAD5CE}
-.fig:nth-child(3n+2) .im{aspect-ratio:1}
+.fig .im{position:relative;aspect-ratio:3/4;overflow:hidden;background:#DAD5CE}
+.fig.s8{grid-column:span 8}.fig.s8 .im{aspect-ratio:3/2}
+.fig.s6{grid-column:span 6}.fig.s6 .im{aspect-ratio:4/3}
 .fig .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
 .fig:hover .im img{transform:scale(1.04)}
 .fig .used{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
@@ -209,6 +242,12 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .wh .sp li{display:grid;grid-template-columns:28px 1fr;gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px;align-items:center}
 .wh .sp li .ic{width:20px;height:20px;color:var(--acc)}
 
+.wide{margin:clamp(50px,6vw,90px) 0 0}
+.wide .im{position:relative;aspect-ratio:21/8;overflow:hidden;background:#DAD5CE}
+.wide .im img{width:100%;height:100%;object-fit:cover}
+.wide figcaption{display:flex;gap:14px;font-size:13px;color:var(--mut);padding-top:10px}
+.wide figcaption b{color:var(--ink);font-weight:500;white-space:nowrap}
+
 /* 06 · next */
 .views{row-gap:20px}
 .views figure{grid-column:span 3;margin:0}
@@ -220,9 +259,17 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 /* 07 · chronology */
 .chr{border-top:1px solid var(--ink)}
 .chr .r{padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.chr .y{grid-column:1/3;font-weight:500;font-size:20px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.chr h3{grid-column:3/7;font-weight:500;font-size:16px}
-.chr p{grid-column:7/13;font-size:14.5px;color:var(--fg2)}
+.chr .r{align-items:center;transition:background .25s}
+.chr .r:hover{background:var(--paper)}
+.chr .y{grid-column:1/3;font-weight:500;font-size:clamp(22px,2vw,30px);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.chr .th{grid-column:3/5;aspect-ratio:3/2;overflow:hidden;background:#DAD5CE;position:relative}
+.chr .th img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.chr .r:hover .th img{transform:scale(1.06)}
+.chr .th.logo,.chr .th.doc{background:#fff}
+.chr .th.logo img,.chr .th.doc img{object-fit:contain;padding:10%}
+.chr .th.archive img{filter:sepia(.35) saturate(.8)}
+.chr h3{grid-column:5/8;font-weight:500;font-size:17px;letter-spacing:-.02em;padding-left:6px}
+.chr p{grid-column:8/13;font-size:14.5px;color:var(--fg2)}
 
 /* 08 · certification + clients */
 .cl{border-top:1px solid var(--ink)}
@@ -280,9 +327,11 @@ footer ul{list-style:none;display:grid;gap:7px;font-size:14px;color:rgba(236,233
 @media (max-width:1080px){
   .tbl{grid-column:1/-1}.pv{display:none}
   .thd,.row{grid-template-columns:36px minmax(0,2.3fr) minmax(0,1.5fr) minmax(0,1.2fr) 40px}.thd .sz,.row .sz{display:none}
-  .grades .l,.grades .t,.ds .pic,.ds .spec,.wh .ims,.wh .sp,.sheet .info,form{grid-column:1/-1}
-  .ds .pic,.wh .ims,.sheet .info{margin-bottom:36px}
-  .fig{grid-column:span 6}
+  .grades .l,.grades .t,.ds .pic,.ds .spec,.sheet .info,form{grid-column:1/-1}
+  .ds .pic,.sheet .info{margin-bottom:36px}
+  .fig,.fig.s8,.fig.s6{grid-column:span 6}.fig .im,.fig.s8 .im,.fig.s6 .im{aspect-ratio:4/5}
+  .scbig .n{grid-column:1/-1}.scbig .t{grid-column:1/-1;padding-top:20px}
+  .pts>div{grid-column:span 6;margin-bottom:20px}
   .views figure{grid-column:span 6}
 }
 @media (max-width:760px){
@@ -300,10 +349,11 @@ footer ul{list-style:none;display:grid;gap:7px;font-size:14px;color:rgba(236,233
   .mtbl .r{grid-template-columns:70px 1fr}.mtbl .r .gr{display:none}.mtbl .r .y{font-size:22px}
   .recbox{grid-template-columns:72px 1fr}.recbox img{width:72px}
   .ds .pic .use{display:none}
-  .fig,.views figure{grid-column:1/-1}
+  .fig,.fig.s8,.fig.s6,.views figure{grid-column:1/-1}.fig .im,.fig.s8 .im,.fig.s6 .im{aspect-ratio:4/3}
+  .pl.a,.pl.b,.pl.c,.pl.d{grid-column:1/-1}.pl.b .im,.pl.c .im{aspect-ratio:4/3}
+  .wide .im{aspect-ratio:4/3}
   .co .col{grid-column:1/-1;margin-bottom:24px}
-  .wh .ims{grid-template-columns:1fr}.wh .ims figure:last-child{display:none}
-  .chr .y{grid-column:1/4}.chr h3{grid-column:4/13}.chr p{grid-column:4/13;margin-top:4px}
+  .chr .y{grid-column:1/4;font-size:20px;align-self:start}.chr .th{grid-column:10/13;grid-row:1/3;align-self:start}.chr h3{grid-column:4/10;padding-left:0}.chr p{grid-column:4/10;margin-top:4px}
   .cl .th{display:none}.cl .y{grid-column:1/4}.cl b{grid-column:4/12}.cl span{grid-column:4/12;margin-top:4px}.cl .v{grid-column:12/13;grid-row:1}
   .qs blockquote{grid-column:1/-1;margin-bottom:22px}
   form{grid-template-columns:1fr}
@@ -336,7 +386,7 @@ footer ul{list-style:none;display:grid;gap:7px;font-size:14px;color:rgba(236,233
 <script src="../shared/rx.js"></script>
 <script>
 const {ic,R}=Core, S=SH, P=S.products.list, $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const NAV=[['Index','products'],['Grades','low-formaldehyde'],['Data sheet','eucalli'],['Applications','rooms'],['Company','about'],['Chronology','story'],['Enquiry','contact']];
+const NAV=[['Index','products'],['Scale','warehouse'],['Grades','low-formaldehyde'],['Data sheet','eucalli'],['Applications','rooms'],['Company','about'],['Chronology','story'],['Enquiry','contact']];
 $('#navLinks').innerHTML=RX.nav(NAV);
 $('#menu').innerHTML=NAV.map(([t,id],i)=>`<a href="#${id}">${t}<span>0${i+1}</span></a>`).join('');
 $('#hLogo').innerHTML=SHIMLEN_LOGO;
@@ -357,7 +407,9 @@ $('#app').innerHTML=`
     <figure class="h-fig"><div class="frame"><div class="reel" id="rReel"></div></div><figcaption><b>Fig. 01</b>Shimlen’s new building, Bandar Teknologi Kajang. Under construction.</figcaption></figure>
   </div>
   <div class="g facts">${[[10000,'m²','Warehouse floorspace'],[500,'+','HPL decors'],[400,'+','MFC decors'],[500,'+','Edgeband colours'],[24,'h*','Klang Valley delivery'],[S.lf.record.n,'','Record stockpile, 2025']].map(([n,u,l])=>`<div><b><span data-count="${n}">0</span><small>${u}</small></b><span>${l}</span></div>`).join('')}</div>
-</div></section>
+</div>
+<div class="band" aria-hidden="true"><div class="bt" id="bt">${P.map((p,i)=>`<span class="${i%2?'o':''}">${p.n.replace('Melamine Faced ','MF ').replace('High Pressure Laminates','HPL').replace('Lacquered Laminate Panel','Lacquered').replace('Acoustic Fluted Panel','Fluted').replace('PVC Foam Board','PVC foam').replace('E0 Flexible Plywood','Flexi E0')}</span><figure data-notag><img src="${RX.use(i)}" alt="" loading="lazy"></figure>`).join('')}</div></div>
+</section>
 
 <section id="products"><div class="wrap">
   ${sh('01','The index','Every material, specified.','',S.products.lead+' Add anything to your enquiry list as you go.')}
@@ -376,8 +428,21 @@ $('#app').innerHTML=`
   <div class="g brandrow" id="brands"><span class="k">Brands carried</span><div class="lg">${S.brands.map(([img,n,c])=>`<div title="${n}"><img class="${c||''}" src="${R}img/${img}" alt="${n}" loading="lazy"></div>`).join('')}</div></div>
 </div></section>
 
+<section class="ink" id="warehouse"><div class="wrap">
+  ${sh('02','Scale',S.warehouse.h2)}
+  <div class="g scbig"><div class="n"><span data-count="10000">0</span><small>m²</small></div>
+    <div class="t"><b>${RX.SCALE.sqft.charAt(0).toUpperCase()+RX.SCALE.sqft.slice(1)}. ${RX.SCALE.pitch.charAt(0).toUpperCase()+RX.SCALE.pitch.slice(1)}.</b><p>${S.warehouse.lead}</p></div></div>
+  <div class="g plates">
+    <figure class="pl a"><div class="im"><img src="${RX.stock('wh-aerial.jpg')}" alt="A large warehouse seen from the air" loading="lazy"></div><figcaption><b>Fig. 02</b>A warehouse of this size, seen from the air.</figcaption></figure>
+    <figure class="pl b"><div class="im"><img src="${RX.stock('aisle.jpg')}" alt="Wrapped panels in a narrow warehouse aisle" loading="lazy"></div><figcaption><b>Fig. 03</b>Wrapped panels, picked by forklift.</figcaption></figure>
+    <figure class="pl c"><div class="im"><img src="${RX.stock('board-stack.jpg')}" alt="Boards stacked high in a warehouse" loading="lazy"></div><figcaption><b>Fig. 04</b>Stacked by thickness, ready to go.</figcaption></figure>
+    <figure class="pl d"><div class="im"><img src="${RX.stock('fleet.jpg')}" alt="Forklifts lined up in a large warehouse hall" loading="lazy"></div><figcaption><b>Fig. 05</b>A hall built for moving full sheets, fast.</figcaption></figure>
+  </div>
+  <div class="g pts">${S.warehouse.points.map(([i,t])=>`<div>${ic('i-'+i)}${t}</div>`).join('')}</div>
+</div></section>
+
 <section class="paper" id="low-formaldehyde"><div class="wrap">
-  ${sh('02','Grades',S.lf.h2)}
+  ${sh('03','Grades',S.lf.h2)}
   <div class="g grades">
     <div class="l"><p class="lead">${S.lf.lead}</p><div class="e0"><img src="${R}img/b-e0.png" alt="E0">${S.lf.e0}</div></div>
     <div class="t"><div class="mtbl" id="steps">${S.lf.steps.map(([y,p],i)=>`<div class="r step"><span class="y">${y}</span><p>${p}</p><span class="gr">${['E1','E1 · MFC','Super E0','Record'][i]}</span></div>`).join('')}</div>
@@ -386,52 +451,48 @@ $('#app').innerHTML=`
 </div></section>
 
 <section id="eucalli"><div class="wrap">
-  ${sh('03','Data sheet · eucalli E0',S.eucalli.h2)}
+  ${sh('04','Data sheet · eucalli E0',S.eucalli.h2)}
   <div class="g ds">
     <figure class="pic" style="margin:0"><img class="lyr" src="${R}img/eucalli-layers.png" alt="eucalli E0: the layers of the board" data-lb="layers" data-cap="eucalli E0 · the layers"><div class="use"><img src="${RX.stock('mfp.jpg')}" alt="Wardrobe in melamine faced plywood" loading="lazy"></div></figure>
     <div class="spec"><img class="logo2" src="${R}img/b-eucalli.png" alt="eucalli E0"><p class="lead">${S.eucalli.lead}</p>
-      <div class="srow"><span class="n">3.0</span><div><b>${S.eucalli.core.h}</b><p>${S.eucalli.core.sub}</p>
+      <div class="srow"><span class="n">4.0</span><div><b>${S.eucalli.core.h}</b><p>${S.eucalli.core.sub}</p>
         <div class="bar" id="coreBar">${S.eucalli.core.split.map(([n])=>`<div><span data-pct="${n}">0</span>%</div>`).join('')}</div>
         <div class="legend">${S.eucalli.core.split.map(([,b,t])=>`<div><b>${b}</b>${t}</div>`).join('')}</div></div></div>
-      ${S.eucalli.feats.map(([b,p],i)=>`<div class="srow"><span class="n">3.${i+1}</span><div><b>${b}</b><p>${p}</p></div></div>`).join('')}
+      ${S.eucalli.feats.map(([b,p],i)=>`<div class="srow"><span class="n">4.${i+1}</span><div><b>${b}</b><p>${p}</p></div></div>`).join('')}
       <ul class="docs">${S.eucalli.proof.map(([src,c],i)=>`<li><button data-lb="proof" data-src="${R}${src}" data-cap="${c}"><img src="${R}${src}" alt=""><b style="font-weight:500">${c}</b><span>View</span></button></li>`).join('')}</ul></div>
   </div>
 </div></section>
 
 <section class="paper" id="rooms"><div class="wrap">
-  ${sh('04','Applications','Specified in rooms like these.','','Sample photographs, to show where each material goes. Select a material to see its specification.')}
-  <div class="g apps">${RX.ROOMS.map((r,i)=>`<figure class="fig"><div class="im"><img src="${RX.stock(r.f)}" alt="${r.room}" loading="lazy"></div>
-    <figcaption><b>Fig. ${pad(i+2)}</b>${r.room}. ${r.line}</figcaption><div class="used">${r.p.map(p=>`<button data-p="${p}">${P[p].n}</button>`).join('')}</div></figure>`).join('')}</div>
+  ${sh('05','Applications','Specified in rooms like these.','','Sample photographs, to show where each material goes. Select a material to see its specification.')}
+  <div class="g apps">${RX.ROOMS.map((r,i)=>`<figure class="fig ${['s8','','','s8','s6','s6'][i]}"><div class="im"><img src="${RX.stock(r.f)}" alt="${r.room}" loading="lazy"></div>
+    <figcaption><b>Fig. ${pad(i+6)}</b>${r.room}. ${r.line}</figcaption><div class="used">${r.p.map(p=>`<button data-p="${p}">${P[p].n}</button>`).join('')}</div></figure>`).join('')}</div>
 </div></section>
 
 <section id="about"><div class="wrap">
-  ${sh('05','Company',S.about.h2)}
-  <div class="g co">${S.about.tabs.map(([h,p],i)=>`<div class="col"><span class="n">5.${i+1}</span><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
-  <div class="g wh" id="warehouse">
-    <div class="ims"><figure><img src="${RX.stock('wh-people.jpg')}" alt="Inside a large racked warehouse" loading="lazy"></figure><figure><img src="${RX.stock('wh-racking.jpg')}" alt="Warehouse racking" loading="lazy"></figure></div>
-    <div class="sp"><span class="k">${S.warehouse.eyebrow}</span><h3>${S.warehouse.h2}</h3><p class="lead" style="font-size:15.5px">${S.warehouse.lead}</p>
-      <ul>${S.warehouse.points.map(([i,t])=>`<li>${ic('i-'+i)}${t}</li>`).join('')}</ul></div>
-  </div>
+  ${sh('06','Company',S.about.h2)}
+  <div class="g co">${S.about.tabs.map(([h,p],i)=>`<div class="col"><span class="n">6.${i+1}</span><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
+  <figure class="wide"><div class="im"><img src="${RX.stock('timber-yard.jpg')}" alt="A timber yard seen from the air" loading="lazy"></div><figcaption><b>Fig. 12</b>Where every board begins: timber, stacked and seasoning.</figcaption></figure>
 </div></section>
 
 <section class="paper" id="new-home"><div class="wrap">
-  ${sh('06','What comes next',RX.HOME.h,'',RX.HOME.p)}
-  <div class="g views">${[['new-front-dawn.jpg','Front, at dawn'],['new-corner-tropical.jpg','Corner, from the car park'],['new-front-dusk.jpg','Front, at dusk'],['new-night.jpg','Front, at night']].map(([f,c],i)=>`<figure><div class="im"><img src="${RX.render(f)}" alt="${c} (artist's impression)" loading="lazy"></div><figcaption><span>6.${i+1}</span>${c}</figcaption></figure>`).join('')}</div>
+  ${sh('07','What comes next',RX.HOME.h,'',RX.HOME.p)}
+  <div class="g views">${[['new-front-dawn.jpg','Front, at dawn'],['new-corner-tropical.jpg','Corner, from the car park'],['new-front-dusk.jpg','Front, at dusk'],['new-night.jpg','Front, at night']].map(([f,c],i)=>`<figure><div class="im"><img src="${RX.render(f)}" alt="${c} (artist's impression)" loading="lazy"></div><figcaption><span>7.${i+1}</span>${c}</figcaption></figure>`).join('')}</div>
 </div></section>
 
 <section id="story"><div class="wrap">
-  ${sh('07','Chronology',S.story.h2,'',S.story.lead)}
-  <div class="chr">${S.story.years.map(([y,h,p])=>`<div class="g r"><span class="y">${y}</span><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
+  ${sh('08','Chronology',S.story.h2,'',S.story.lead)}
+  <div class="chr">${S.story.years.map(([y,h,p,img,k])=>`<div class="g r"><span class="y">${y}</span><span class="th ${k||''}" data-notag><img src="${R}${img.replace('site-aerial','renders/new-corner')}" alt="" loading="lazy"></span><h3>${h}</h3><p>${p}</p></div>`).join('')}</div>
 </div></section>
 
 <section class="paper" id="recognition"><div class="wrap">
-  ${sh('08','Certification',S.certs.h2,'',S.certs.lead)}
+  ${sh('09','Certification',S.certs.h2,'',S.certs.lead)}
   <div class="cl">${S.certs.list.map(c=>`<button class="g" data-lb="certs" data-src="${R}${c.src}" data-cap="${c.h} · ${c.yr}"><img class="th" src="${R}${c.src}" alt="" loading="lazy"><span class="y">${c.yr}</span><b>${c.h}</b><span>${c.p}</span><span class="v">View</span></button>`).join('')}</div>
   <div class="g qs">${S.quotes.list.map(([q,n,r])=>`<blockquote>“${q}”<cite>${n} · ${r}</cite></blockquote>`).join('')}</div>
 </div></section>
 
 <section id="contact"><div class="wrap">
-  ${sh('09','Enquiry sheet',S.contact.h2)}
+  ${sh('10','Enquiry sheet',S.contact.h2)}
   <div class="g sheet">
     <div class="info"><p class="lead">Send the list and a few details; our team replies within one working day with stock, prices and delivery.</p>
       <dl><div><dt>Phone</dt><dd class="tels">${Core.tels()}</dd></div><div><dt>Email</dt><dd>${Core.mail()}</dd></div>
@@ -503,9 +564,13 @@ RX.loader('index',{preload:['img/renders/new-front-mist.jpg'],min:2200,done(){if
 Motion.init({intro:'none',magnetic:false});
 Motion.chars('.split');
 Motion.rows('.co,.views,.qs');
-Motion.cascade('.sh .k,.sh .lead,.sh .sideL,.tools,.thd,.row,.brandrow,.mtbl .r,.recbox,.grades .l>*,.srow,.docs li,.fig figcaption,.fig .used,.wh .sp>*,.chr .r,.cl button,.sheet .info>*,.picked,.field,.f-end');
+Motion.cascade('.scbig .t,.pts>div,.pl figcaption,.wide figcaption,.sh .k,.sh .lead,.sh .sideL,.tools,.thd,.row,.brandrow,.mtbl .r,.recbox,.grades .l>*,.srow,.docs li,.fig figcaption,.fig .used,.wh .sp>*,.chr .r,.cl button,.sheet .info>*,.picked,.field,.f-end');
 /* frames open with a straight cut from the top */
-if(Motion.ok)$$('.fig .im,.ds .pic,.wh .ims figure,.views .im,.pv .ph,.map').forEach(el=>gsap.fromTo(el,{clipPath:'inset(0% 0% 100% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.1,ease:'expo.inOut',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none reverse'}}));
+if(Motion.ok)$$('.fig .im,.ds .pic,.pl .im,.wide .im,.views .im,.pv .ph,.map').forEach(el=>gsap.fromTo(el,{clipPath:'inset(0% 0% 100% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.1,ease:'expo.inOut',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none reverse'}}));
+/* the line of products slides as the page scrolls */
+if(Motion.ok){const bt=$('#bt');gsap.fromTo(bt,{x:0},{x:()=>-(bt.scrollWidth-innerWidth)*.7,ease:'none',scrollTrigger:{trigger:'.band',start:'top bottom',end:'bottom top',scrub:.5,invalidateOnRefresh:true}});
+  gsap.fromTo('.scbig .n',{yPercent:30,opacity:0},{yPercent:0,opacity:1,ease:'none',scrollTrigger:{trigger:'.scbig',start:'top 95%',end:'top 55%',scrub:.4}})}
+Motion.parallax('.wide .im img,.pl.a .im img,.pl.d .im img',7);
 Motion.wordRise('.f-wm');
 </script>
 </body>

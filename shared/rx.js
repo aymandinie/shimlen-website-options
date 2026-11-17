@@ -27,6 +27,10 @@
   ];
   const RENDERS = [['new-front-dusk.jpg', 'The front, at dusk'], ['new-corner-tropical.jpg', 'The corner, from the car park'], ['new-front-mist.jpg', 'The front, morning mist'],
     ['new-night.jpg', 'The front, lit at night'], ['new-front-dawn.jpg', 'The front, at dawn'], ['new-corner.jpg', 'The corner, in daylight']];
+  /* scale, from the published figure (10,000 sq m warehouse). 10,000 m² ≈ 107,600 sq ft; a FIFA pitch is about 7,140 m².
+     Land size (~7 acres) and staff (~50) are not confirmed by the client yet, so they are not used. */
+  const SCALE = {big: '10,000 m²', sqft: 'about 108,000 sq ft', pitch: 'bigger than a football pitch',
+    line: 'Ten thousand square metres under one roof: about 108,000 sq ft, bigger than a football pitch, racked floor to ceiling with ready stock.'};
   const HOME = {h: 'Our next home is already rising.', p: 'On the lot next to our warehouse in Bandar Teknologi Kajang, a new Shimlen building is under construction. More room for stock, a brighter front door for our customers, and a façade with the same fluted rhythm as the panels we sell.'};
 
   /* ======================= opening screens ======================= */
@@ -184,5 +188,5 @@
   /* the nav for the header and the menu, from [label, id] pairs */
   const nav = list => list.map(([t, id]) => `<a href="#${id}">${t}</a>`).join('');
 
-  window.RX = {K, RD, PK, CAT, LOWF, ROOMS, RENDERS, HOME, stock, render, use, loader, reel, tag, form, map, note, nav};
+  window.RX = {K, RD, PK, CAT, LOWF, ROOMS, RENDERS, HOME, SCALE, stock, render, use, loader, reel, tag, form, map, note, nav};
 })();
