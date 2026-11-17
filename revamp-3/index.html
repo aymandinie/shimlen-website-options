@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../shared/motion.css">
 <style>
 /* Option 3 · Studio: editorial. Warm off-white and stone, one even 12-column grid, big tight type. */
-:root{--bg:#ECE9E4;--fg:#1E1B1B;--fg2:#4D4746;--mut:#857E7C;--line:rgba(30,27,27,.15);--acc:#867774;--stone:#A39996;--paper:#F7F5F2;--ink:#1E1B1B;
+:root{--bg:#ECE9E4;--fg:#1E1B1B;--fg2:#4D4746;--mut:#736A68;--line:rgba(30,27,27,.15);--acc:#867774;--stone:#A39996;--paper:#F7F5F2;--ink:#1E1B1B;
   --g:24px;--hh:64px;--wrap:min(1440px,calc(100vw - 48px));--pad:clamp(64px,7vw,110px);--drawer-bg:#F7F5F2;--drawer-line:rgba(30,27,27,.14)}
 body{font-family:"Inter Tight","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:16px}
 .grid{display:grid;grid-template-columns:repeat(12,1fr);column-gap:var(--g)}
@@ -319,6 +319,7 @@ footer{background:var(--stone);margin-top:var(--pad);padding-top:clamp(50px,5vw,
 /* motion */
 :root{--pre-bg:#ECE9E4;--pre-fg:#1E1B1B;--cur:#1E1B1B}
 .hero .reel{will-change:clip-path}
+.ab-img,.euc .media{overflow:hidden}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared/soul.css">
@@ -505,7 +506,7 @@ Motion.expand(document.querySelector('.wh .film'),'inset(10% 12% 10% 12%)','inse
 Motion.scrub(document.querySelector('.record .num'),{scale:.8,transformOrigin:'0% 100%'},{scale:1},{start:'top bottom',end:'center center'});
 Motion.parallax('.ab-img img,.gal img,.euc .media>img',8);
 Motion.chars('section:not(.hero) .split');
-Motion.cascade('section:not(.hero) .rv, .h-under .rv');
+Motion.cascade('section:not(.hero) .rv, .h-under .rv:not(.rec-line)');
 Motion.wordRise('.f-wm');
 </script>
 </body>

@@ -1,7 +1,7 @@
 /* Shimlen v4: structure shared by the three styles. Colours, type and layout live in each style page,
    which sets the custom properties below. */
 @font-face{font-family:"Saira";src:url("../fonts/Saira.ttf") format("truetype");font-weight:100 900;font-stretch:75% 125%;font-display:swap}
-:root{--bg:#fff;--fg:#231F20;--fg2:#4A4445;--mut:#8A8384;--line:#E3DEDC;--acc:#867774;--panel:#F5F2F1;
+:root{--bg:#fff;--fg:#231F20;--fg2:#4A4445;--mut:#736A68;--line:#E3DEDC;--acc:#867774;--panel:#F5F2F1;
   --ease:cubic-bezier(.22,1,.36,1);--hh:76px;--r:0px;--wrap:min(1280px,calc(100vw - 48px))}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:var(--hh);-webkit-text-size-adjust:100%}

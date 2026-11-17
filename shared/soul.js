@@ -43,9 +43,25 @@
       <div class="sl-p">No one admires the plywood inside a wardrobe. They notice the door still closes straight ten years on. That is the part we look after.</div></div></section>`
   };
 
+  /* where a new section meets one with a different background, both sides get room to breathe
+     (some original sections had no top padding because the section before them was padded) */
+  function breathe() {
+    const bl = [...document.getElementById('app').children], gap = 'clamp(72px,8vw,120px)';
+    const bg = e => { for (; e; e = e.parentElement) { const c = getComputedStyle(e).backgroundColor; if (!/rgba\(0, 0, 0, 0\)|transparent/.test(c)) return c } return '' };
+    const media = e => { const f = e.firstElementChild; return !!f && /film|reel|hero|gal/i.test(f.className + ' ' + f.id) };
+    for (let i = 1; i < bl.length; i++) {
+      const A = bl[i - 1], B = bl[i];
+      if (!A.classList.contains('sl') && !B.classList.contains('sl')) continue;
+      if (bg(A) === bg(B)) continue;
+      if (parseFloat(getComputedStyle(B).paddingTop) < 40 && !media(B)) B.style.paddingTop = gap;
+      if (parseFloat(getComputedStyle(A).paddingBottom) < 40 && !media(A)) A.style.paddingBottom = gap
+    }
+  }
   function init() {
+    breathe();
     /* sample tags on any stock picture the page itself rendered */
     document.querySelectorAll(`img[src*="/${K}"]`).forEach(i => { const p = i.parentElement; if (!p.closest('.smp')) p.classList.add('smp') });
+    document.querySelectorAll('.smp').forEach(e => { if (getComputedStyle(e).position === 'static') e.style.position = 'relative' });
     /* sample tag on the films */
     ['heroReel', 'whFilm'].forEach(id => { const b = document.getElementById(id); if (!b) return; b.classList.add('smpv'); if (getComputedStyle(b).position === 'static') b.style.position = 'relative' });
     /* board to room: the step in the middle of the screen turns the picture */
