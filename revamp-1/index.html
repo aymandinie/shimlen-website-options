@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Shimlen · Revamp 1 · Open</title>
+<title>Shimlen · Daylight · Revamp 1</title>
 <meta name="description" content="High-quality materials for custom-made furniture: plywood, MFC, HPL, edgeband, acoustic and lacquered panels. 10,000 sq m warehouse in Semenyih, Selangor.">
 <link rel="icon" href="../img/logo-mark.svg">
 <script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&location.search.indexOf('shot')<0)document.documentElement.classList.add('rx-loading')</script>
@@ -126,14 +126,11 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 /* 4 · rooms: the picture holds still while the rooms are read past it */
 .rs{display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,5vw,90px)}
 .rs-pics{position:sticky;top:calc(var(--hh) + 24px);height:calc(100svh - var(--hh) - 48px);max-height:780px;border-radius:var(--r);overflow:hidden;background:var(--sand)}
-.rs-pics figure{position:absolute;inset:0;margin:0;clip-path:inset(100% 0 0 0);transition:clip-path 1.2s var(--ease)}
-.rs-pics figure.on,.rs-pics figure.was{clip-path:inset(0 0 0 0)}
-.rs-pics figure.on{z-index:1}
-.rs-pics img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 2.2s var(--ease)}
-.rs-pics figure.on img{transform:none}
+.rs-pics figure{position:absolute;inset:0;margin:0;clip-path:inset(100% 0 0 0)}
+.rs-pics figure:first-child,.rs-pics figure.on,.rs-pics figure.was{clip-path:inset(0 0 0 0)}
+.rs-pics img{width:100%;height:100%;object-fit:cover;will-change:transform}
 .rs-cnt{position:absolute;left:16px;bottom:16px;z-index:3;background:rgba(255,253,251,.92);border-radius:999px;padding:8px 14px;font-family:Saira;font-size:14px;font-variant-numeric:tabular-nums}
-.rs-step{min-height:74svh;display:flex;flex-direction:column;justify-content:center;opacity:.25;transition:opacity .6s}
-.rs-step.on{opacity:1}
+.rs-step{min-height:80svh;display:flex;flex-direction:column;justify-content:center}
 .rs-step:last-child{min-height:62svh}
 .rs-step .k{font-family:Saira;font-size:15px;color:var(--acc)}
 .rs-step h3{font-family:Saira;font-weight:400;font-size:clamp(34px,3.4vw,52px);letter-spacing:-.02em;margin:8px 0 14px;line-height:1}
@@ -564,11 +561,6 @@ $('#foot').innerHTML=`<div class="wrap">
     const r=el.getBoundingClientRect(),h=innerHeight,p=Math.min(1,Math.max(0,(h*.8-r.top)/(r.height+h*.25)));const n=Math.round(p*ws.length);ws.forEach((w,i)=>w.classList.toggle('on',i<n))};
   document.addEventListener('pagescroll',upd);upd()})();
 
-/* rooms: the step in the middle of the screen turns the picture */
-(function(){const st=$$('.rs-step'),fs=$$('.rs-pics figure'),n=$('#rsCnt');let c=0;
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=+e.target.dataset.i;if(i===c)return;
-    st.forEach((s,j)=>s.classList.toggle('on',j===i));fs.forEach((f,j)=>{f.classList.toggle('was',j<i);f.classList.toggle('on',j===i)});c=i;n.textContent=`0${i+1} / 0${st.length}`}),{rootMargin:'-45% 0px -45% 0px'});
-  st.forEach(s=>io.observe(s))})();
 /* board, surface, edge: point at a panel (or tap it) to open it */
 (function(){const ps=$$('.ap');const open=p=>ps.forEach(x=>x.classList.toggle('on',x===p));
   ps.forEach(p=>{p.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')open(p)});p.addEventListener('click',e=>{if(!e.target.closest('button'))open(p)});p.addEventListener('focus',()=>open(p))})})();
@@ -599,6 +591,21 @@ Motion.chars('.split');
 Motion.scrub($('.makers figure:nth-child(2)'),{y:40},{y:-40},{trigger:'.makers'});
 Motion.scrub($('.hbox'),{scale:.96},{scale:1},{trigger:'.health',start:'top bottom',end:'top 40%'});
 Motion.wordRise('.f-wm');
+/* rooms: each picture rises over the last in step with the scroll, and the words in the middle of the screen are the ones in focus */
+(function(){const st=$$('.rs-step'),fs=$$('.rs-pics figure'),n=$('#rsCnt');let c=-1;
+  const mark=i=>{if(i===c)return;c=i;n.textContent=`0${i+1} / 0${st.length}`};
+  if(Motion.ok&&innerWidth>900){
+    fs.forEach((f,i)=>{if(!i)return;const st_={trigger:st[i],start:'top 78%',end:'top 14%',scrub:.9};
+      gsap.fromTo(f,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',ease:'power1.inOut',scrollTrigger:st_});
+      gsap.fromTo(f.querySelector('img'),{scale:1.14,yPercent:8},{scale:1,yPercent:0,ease:'power1.out',scrollTrigger:Object.assign({},st_)})});
+    const focus=()=>{const mid=innerHeight*.5;let best=0,bd=1e9;
+      st.forEach((s,i)=>{const r=s.getBoundingClientRect(),d=Math.abs(r.top+r.height/2-mid);if(d<bd){bd=d;best=i}
+        s.style.opacity=Math.max(.2,Math.min(1,1.25-d/(r.height*.75))).toFixed(3)});mark(best)};
+    document.addEventListener('pagescroll',focus);addEventListener('scroll',focus,{passive:true});focus();
+  }else{
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const i=+e.target.dataset.i;
+      fs.forEach((f,j)=>{f.classList.toggle('was',j<i);f.classList.toggle('on',j===i)});mark(i)}),{rootMargin:'-45% 0px -45% 0px'});
+    st.forEach(s=>io.observe(s));mark(0)}})();
 </script>
 </body>
 </html>

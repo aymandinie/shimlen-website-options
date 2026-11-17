@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Shimlen · Revamp 3 · Studio</title>
+<title>Shimlen · Index · Revamp 3</title>
 <meta name="description" content="The Shimlen product index: plywood, MFC, HPL, lacquered and acoustic panels, edgeband. Specifications, grades and an enquiry list.">
 <link rel="icon" href="../img/logo-mark.svg">
 <script>if(!matchMedia('(prefers-reduced-motion:reduce)').matches&&location.search.indexOf('shot')<0)document.documentElement.classList.add('rx-loading')</script>
@@ -36,7 +36,8 @@ section{position:relative;padding:var(--pad) 0}
 /* header: a ruled bar that stays */
 #hdr{position:fixed;top:0;left:0;right:0;height:var(--hh);z-index:60;background:rgba(236,233,228,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);--logo-a:#1E1B1B;--logo-b:#867774}
 #hdr.hide{transform:none}
-.nav{height:100%;align-items:center}
+.nav{height:100%;align-items:center;grid-template-rows:100%}
+.nav>a,.nav-links,.nav-r{grid-row:1;align-self:center}
 .nav .logo{width:118px}
 .nav-links{grid-column:3/10;display:flex;gap:clamp(10px,1.3vw,22px);white-space:nowrap;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
 .nav-links a{color:var(--mut);transition:color .2s;padding:6px 0}
@@ -114,13 +115,15 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 .pts .ic{width:24px;height:24px;color:var(--stone)}
 
 /* section heads */
-.sh{border-top:1px solid var(--ink);padding-top:14px;margin-bottom:clamp(36px,4vw,64px);row-gap:22px}
+.sh{border-top:1px solid var(--ink);padding-top:14px;margin-bottom:clamp(36px,4vw,64px);row-gap:clamp(22px,2.4vw,34px);align-items:end}
+.sh .no,.sh .k,.sh .r{grid-row:1;align-self:start;line-height:1.4}
 .sh .no{grid-column:1/3;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums}
-.sh .k{grid-column:3/7}
+.sh .k{grid-column:3/9}
 .sh .r{grid-column:9/13;text-align:right}
-.sh h2{grid-column:3/10}
+.sh h2{grid-column:3/11;grid-row:2;text-wrap:balance}
+.sh.has-side h2{grid-column:3/9}
 .sh .lead{grid-column:3/8}
-.sh .sideL{grid-column:9/13;font-size:15px;color:var(--fg2)}
+.sh .sideL{grid-column:9/13;grid-row:2;align-self:end;font-size:15px;line-height:1.5;color:var(--fg2);max-width:38ch;padding-bottom:.3em}
 
 /* 01 · the index */
 .tools{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
@@ -323,7 +326,7 @@ footer ul{list-style:none;display:grid;gap:7px;font-size:14px;color:rgba(236,233
 .f-wm{color:#ECE9E4;margin-top:clamp(40px,6vw,80px)}
 .f-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(236,233,228,.6);padding:16px 0 4px;border-top:1px solid rgba(236,233,228,.16);margin-top:14px}
 
-@media (max-width:1200px){.nav-links{display:none}.burger{display:grid}}
+@media (max-width:1240px){.nav-links{display:none}.burger{display:grid}}
 @media (max-width:1080px){
   .tbl{grid-column:1/-1}.pv{display:none}
   .thd,.row{grid-template-columns:36px minmax(0,2.3fr) minmax(0,1.5fr) minmax(0,1.2fr) 40px}.thd .sz,.row .sz{display:none}
@@ -341,7 +344,7 @@ footer ul{list-style:none;display:grid;gap:7px;font-size:14px;color:rgba(236,233
   .h-txt,.h-fig{grid-column:1/-1}.h-fig{margin-top:30px;order:-1}.h-txt{margin-top:24px}
   .h-txt .btns{max-width:none}
   .facts>div{grid-column:span 6;border-right:0;border-bottom:1px solid var(--line);padding-bottom:14px}
-  .sh .no{grid-column:1/3}.sh .k{grid-column:3/13}.sh .r{display:none}.sh h2,.sh .lead,.sh .sideL{grid-column:1/-1}
+  .sh .no{grid-column:1/3}.sh .k{grid-column:3/13}.sh .r{display:none}.sh h2,.sh.has-side h2,.sh .lead,.sh .sideL{grid-column:1/-1}.sh .sideL{grid-row:auto;padding-bottom:0}
   .thd{display:none}
   .row{grid-template-columns:minmax(0,1fr) 40px;gap:10px}.row .n,.row .c,.row .sz{display:none}.row .br{display:block;grid-column:1;grid-row:2;font-size:13px;color:var(--mut);margin-top:-6px}
   .search{min-width:0;flex:1 1 100%}
@@ -365,7 +368,7 @@ footer ul{list-style:none;display:grid;gap:7px;font-size:14px;color:rgba(236,233
 </head>
 <body>
 <header id="hdr"><div class="wrap g nav">
-  <a href="#top" aria-label="Shimlen home" id="hLogo" style="grid-column:1/4"></a>
+  <a href="#top" aria-label="Shimlen home" id="hLogo" style="grid-column:1/3"></a>
   <nav class="nav-links" id="navLinks" aria-label="Sections"></nav>
   <div class="nav-r"><a href="#contact" class="elist" id="elist"><span>Enquiry list</span><b id="ecount">0</b></a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div>
@@ -392,7 +395,7 @@ $('#menu').innerHTML=NAV.map(([t,id],i)=>`<a href="#${id}">${t}<span>0${i+1}</sp
 $('#hLogo').innerHTML=SHIMLEN_LOGO;
 const spec=(p,k)=>{const r=p.s.find(([a])=>a===k);return r?r[1]:'—'};
 const pad=n=>String(n).padStart(2,'0');
-const sh=(no,k,h,lead,side)=>`<div class="g sh"><span class="no">${no}</span><span class="k">${k}</span><span class="r k">Shimlen · ${new Date().getFullYear()}</span>
+const sh=(no,k,h,lead,side)=>`<div class="g sh${side?' has-side':''}"><span class="no">${no}</span><span class="k">${k}</span><span class="r k">Shimlen · ${new Date().getFullYear()}</span>
   <h2 class="h2 split">${h}</h2>${lead?`<p class="lead">${lead}</p>`:''}${side?`<p class="sideL">${side}</p>`:''}</div>`;
 const FILT=[['all','All'],['board','Board'],['surface','Surface'],['edge','Edge'],['low','Low formaldehyde']];
 const count=f=>P.filter((_,i)=>f==='all'||(f==='low'?RX.LOWF.includes(i):RX.CAT[i]===f)).length;

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Shimlen · Revamp 2 · Heartwood</title>
+<title>Shimlen · Chronicle · Revamp 2</title>
 <meta name="description" content="Since 1980: the boards behind Malaysia's custom-made furniture. Plywood, MFC, HPL, edgeband, acoustic and lacquered panels from Semenyih, Selangor.">
 <link rel="icon" href="../img/logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,7 +71,7 @@ body.menu-open .burger span:nth-child(3){transform:translateY(-4.5px) rotate(-45
 @media (min-width:1400px){.runner{display:flex}}
 
 /* hero: tree rings draw in, the wordmark shrinks into the navbar, the arch opens onto the new building at night */
-.hero{height:220vh;padding:0}
+.hero{height:250vh;padding:0}
 .h-stick{position:sticky;top:0;height:100svh;overflow:hidden}
 .h-arch{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:var(--aw,64vw);height:var(--ah,60vh);border-radius:var(--ar,32vw 32vw 0 0);overflow:hidden;z-index:2}
 .h-arch .reel{position:absolute;inset:0}
@@ -87,7 +87,10 @@ html.is-loading .rings path{animation-play-state:paused}
 .scroll-cue i{width:1px;height:30px;background:var(--line);position:relative;overflow:hidden}
 .scroll-cue i::after{content:"";position:absolute;left:0;top:-30px;width:1px;height:30px;background:var(--fg);animation:cue 2s var(--ease) infinite}
 @keyframes cue{to{top:30px}}
-.h-copy{position:absolute;left:0;right:0;bottom:clamp(40px,7vh,80px);z-index:4;opacity:var(--co,0);transform:translateY(calc((1 - var(--co,0))*30px));pointer-events:var(--pe,none)}
+.h-copy{position:absolute;left:0;right:0;bottom:clamp(40px,7vh,80px);z-index:4;pointer-events:var(--pe,none)}
+.h-copy .mk{overflow:hidden;padding:.06em 0 .16em;margin:-.06em 0 -.16em}
+.h-copy .mk>*{transform:translate3d(0,calc((1 - var(--m,0))*112%),0)}
+.h-copy .mk+.mk{margin-top:calc(22px - .22em)}
 .h-copy .row{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end}
 .h-copy h1{font-size:clamp(40px,5.2vw,82px);max-width:14ch;color:#fff}
 .h-copy h1 em{font-style:italic;color:var(--acc)}
@@ -123,6 +126,7 @@ html.is-loading .rings path{animation-play-state:paused}
 .print{position:absolute;right:-26px;bottom:44px;z-index:3;background:#F6F0EA;padding:8px 8px 10px;transform:rotate(3deg);box-shadow:0 18px 40px rgba(0,0,0,.4);width:172px}
 .print img{width:100%;aspect-ratio:163/97;object-fit:cover;filter:sepia(.4) saturate(.8)}
 .print span{display:block;font-family:Fraunces,serif;font-style:italic;font-size:12.5px;color:#51494A;margin-top:6px;text-align:center}
+@media (max-width:900px){.print{right:-6px}}
 .roots figcaption{font-size:13px;color:var(--mut);margin-top:14px;font-style:italic;font-family:Fraunces,serif}
 .roots .big{font-family:Fraunces,serif;font-weight:300;font-size:clamp(28px,2.8vw,42px);line-height:1.2;letter-spacing:-.01em;margin-bottom:26px}
 .roots .lead{margin-bottom:36px}
@@ -188,6 +192,29 @@ html.is-loading .rings path{animation-play-state:paused}
 .proof button:hover{transform:translateY(-3px)}
 .proof img{width:100%;height:100%;object-fit:cover}
 .proof small{flex:1;min-width:160px;font-size:13px;color:var(--mut)}
+
+/* IV · scale: Shimlen's own warehouse, in its own photographs */
+.grand{position:relative;width:100vw;margin-left:calc(50% - 50vw);height:clamp(560px,100svh,1000px);overflow:hidden;margin-bottom:clamp(18px,2vw,30px);background:#1c1614}
+.grand>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;will-change:transform}
+.grand::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(28,22,20,.94),rgba(28,22,20,.62) 42%,rgba(28,22,20,.14) 74%,rgba(28,22,20,.4));pointer-events:none}
+.g-copy{position:absolute;left:0;right:0;bottom:clamp(30px,5vw,72px);z-index:2;color:#fff}
+.g-copy .label{color:#E2D3C8}
+.g-n{font-family:Fraunces,serif;font-weight:300;font-size:clamp(96px,19vw,320px);line-height:.82;letter-spacing:-.045em;margin:20px 0 14px;font-variant-numeric:lining-nums tabular-nums;white-space:nowrap}
+.g-n small{font-size:.24em;font-style:italic;letter-spacing:0;color:#E2D3C8;margin-left:.1em}
+.g-copy p{font-family:Fraunces,serif;font-style:italic;font-weight:300;font-size:clamp(19px,2vw,30px);max-width:34ch;line-height:1.25;color:rgba(255,255,255,.92)}
+.g-row{display:grid;grid-template-columns:6fr 3fr 3fr;gap:clamp(14px,2vw,28px);align-items:end;margin-bottom:clamp(90px,10vw,160px)}
+.g-row figure{margin:0}
+.g-row .im{height:clamp(240px,26vw,420px);border-radius:var(--r);overflow:hidden}
+.g-row .arch{height:clamp(300px,32vw,520px)}
+.g-row img{width:100%;height:100%;object-fit:cover}
+.g-row figcaption{font-size:13.5px;color:var(--mut);margin-top:12px;line-height:1.45;max-width:40ch}
+.g-row figcaption b{display:block;font-family:Fraunces,serif;font-weight:400;font-style:italic;font-size:18px;color:var(--fg);margin-bottom:2px}
+.g-facts{margin:0;border-top:1px solid var(--line)}
+.g-facts div{padding:16px 0;border-bottom:1px solid var(--line)}
+.g-facts dt{font-family:Fraunces,serif;font-weight:300;font-size:clamp(26px,2.4vw,38px);line-height:1;letter-spacing:-.02em}
+.g-facts dd{font-size:13px;color:var(--mut);margin:6px 0 0}
+@media (max-width:900px){.g-row{grid-template-columns:1fr 1fr}.g-row figure:first-child{grid-column:1/-1}.g-facts{grid-column:1/-1}.g-facts{display:grid;grid-template-columns:1fr 1fr;column-gap:20px}}
+@media (max-width:560px){.g-n{font-size:clamp(64px,21vw,96px)}.g-row{grid-template-columns:1fr}.g-row .arch{height:380px}.g-facts{grid-template-columns:1fr 1fr}}
 
 /* IV · scale and record */
 .record{text-align:center;padding-bottom:clamp(60px,7vw,110px)}
@@ -297,7 +324,7 @@ footer ul a:hover{color:var(--fg)}
   .h-intro{position:relative;top:auto;padding:0 16px 14px;opacity:1}
   .h-arch{position:relative;left:0;transform:none;width:calc(100vw - 32px);height:60svh;min-height:400px;margin:0 auto;border-radius:46vw 46vw var(--r) var(--r)}
   .h-arch .shade{opacity:0}
-  .h-copy{position:relative;bottom:auto;opacity:1;transform:none;pointer-events:auto;padding:28px 0 40px}
+  .h-copy{position:relative;bottom:auto;pointer-events:auto;padding:28px 0 40px}.h-copy .mk>*{transform:none}
   .h-copy .row{grid-template-columns:1fr;gap:16px}
   .h-copy h1{color:var(--fg)}.h-copy .lead{color:var(--fg2)}.h-copy .btns{color:var(--fg)}
   .rings{width:200vw;bottom:auto;top:22vh}
@@ -365,9 +392,9 @@ $('#app').innerHTML=`
   <div class="wrap h-intro" id="hIntro"><span><b>${S.hero.eyebrow}</b></span><span class="scroll-cue">Scroll to enter <i></i></span></div>
   <div class="h-arch" id="hArch"><div class="reel" id="rReel"></div><div class="shade"></div></div>
   <div class="h-copy"><div class="wrap row">
-    <h1 class="serif">Forty-five years of the boards behind <em>Malaysia’s</em> furniture.</h1>
-    <div><p class="lead">${S.hero.h1.replace('.','')}: ${S.hero.lead.charAt(0).toLowerCase()+S.hero.lead.slice(1)}</p>
-      <div class="btns"><a href="#about" class="btn"><span class="ring">${ic('arrow')}</span>Begin with chapter one</a><a href="#contact" class="btn"><span class="ring">${ic('arrow')}</span>Enquire</a></div></div>
+    <div class="mk"><h1 class="serif">Forty-five years of the boards behind <em>Malaysia’s</em> furniture.</h1></div>
+    <div><div class="mk"><p class="lead" style="margin-bottom:0">${S.hero.h1.replace('.','')}: ${S.hero.lead.charAt(0).toLowerCase()+S.hero.lead.slice(1)}</p></div>
+      <div class="mk"><div class="btns"><a href="#about" class="btn"><span class="ring">${ic('arrow')}</span>Begin with chapter one</a><a href="#contact" class="btn"><span class="ring">${ic('arrow')}</span>Enquire</a></div></div></div>
   </div></div>
 </div></section>
 <div class="cbar"><nav class="wrap contents" aria-label="Contents">${CH.map(([n,t,y,id])=>`<a href="#${id}"><i>${n}</i><b>${t}</b><span>${y}</span></a>`).join('')}</nav></div>
@@ -412,6 +439,15 @@ $('#app').innerHTML=`
 
 <section class="ch" id="warehouse" data-ch="3"><div class="wrap">
   ${op(3,'Scale')}
+  <div class="grand" id="grand"><img src="${R}img/site-warehouse.jpg" alt="Inside the Shimlen warehouse in Bandar Teknologi Kajang: racks of boards under a high steel roof" loading="lazy">
+    <div class="g-copy"><div class="wrap"><div class="label">Our warehouse today · Bandar Teknologi Kajang</div>
+      <div class="g-n"><span data-count="10000">10,000</span><small>m²</small></div>
+      <p>${RX.SCALE.sqft}, ${RX.SCALE.pitch}: racked from the floor to the roof.</p></div></div></div>
+  <div class="g-row">
+    <figure><div class="im"><img src="${R}img/site-aerial.jpg" alt="Aerial view of the Shimlen warehouse and its yard in Bandar Teknologi Kajang" loading="lazy"></div><figcaption><b>From above</b>The whole site in Bandar Teknologi Kajang.</figcaption></figure>
+    <figure><div class="arch"><img src="${R}img/site-building.jpg" alt="The Shimlen building and its signage" loading="lazy"></div><figcaption><b>Since 2017</b>Our building, and the start of every order.</figcaption></figure>
+    <dl class="g-facts"><div><dt>10,000 m²</dt><dd>of warehouse floor</dd></div><div><dt>≈108,000 sq ft</dt><dd>bigger than a football pitch</dd></div><div><dt>Since 2017</dt><dd>at this address, our third move</dd></div><div><dt>24 h*</dt><dd>delivery across the Klang Valley</dd></div></dl>
+  </div>
   <div class="record"><div class="label" style="justify-content:center">${S.lf.steps[3][0]} · The Malaysia Book of Records</div>
     <div class="big serif" style="margin-top:26px"><span data-count="${S.lf.record.n}">0</span></div><div class="u">${S.lf.record.unit}, in one stockpile</div>
     <p>${S.lf.record.h}.</p>
@@ -471,26 +507,31 @@ Core.init();
   bs.forEach(b=>b.addEventListener('pointerenter',()=>{const i=+b.dataset.i;bs.forEach(x=>x.classList.toggle('on',x===b));ims.forEach((im,k)=>im.classList.toggle('on',k===i));
     $('#rpvNo').textContent=String(i+1).padStart(2,'0');$('#rpvN').textContent=P[i].n;$('#rpvB').textContent=P[i].b}))})();
 
-/* hero choreography: the wordmark shrinks from full width into the middle of the navbar while the arch opens */
-(function(){const st=$('#hStick'),hero=$('#top'),wm=$('#wm'),hdr=$('#hdr'),intro=$('#hIntro');
+/* hero choreography: the wordmark shrinks from full width into the middle of the navbar while the arch opens.
+   The scene follows the scroll through a soft spring, so a flick of the wheel never makes it jump. */
+(function(){const st=$('#hStick'),hero=$('#top'),wm=$('#wm'),hdr=$('#hdr'),intro=$('#hIntro'),mk=$$('.h-copy .mk');
   const RATIO=36.4/310;let L={};
   const lay=()=>{const W=innerWidth,H=innerHeight,hh=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hh'))||72,mob=W<=860;
     const w0=Math.min(W*(mob?.92:.94),1500),h0=w0*RATIO,top0=hh+(mob?6:10),w1=mob?118:150,h1=w1*RATIO,top1=(hh-h1)/2;
     const introTop=top0+h0+16,archTop=introTop+(mob?0:intro.offsetHeight)+22;
     L={W,H,hh,mob,w0,h0,top0,w1,top1,ah0:Math.max(H*.42,H-archTop)};
     if(mob){st.style.setProperty('--wmspace',(top0+h0+14)+'px')}else{st.style.setProperty('--it',introTop+'px')}};
-  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
-  const set=()=>{const y=scrollY;let q,e=0;
-    if(L.mob){q=Math.min(1,Math.max(0,y/(L.top0+L.h0)))}
-    else{const p=Math.min(1,Math.max(0,y/(hero.offsetHeight-L.H)));e=ease(p);q=Math.min(1,e*1.35);
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2, cl=v=>Math.min(1,Math.max(0,v)), out=t=>1-Math.pow(1-t,3);
+  const set=y=>{let q,e=0;
+    if(L.mob){q=cl(y/(L.top0+L.h0))}
+    else{const p=cl(y/(hero.offsetHeight-L.H));e=ease(p);q=Math.min(1,e*1.25);
       const aw=.64*L.W+(L.W-.64*L.W)*e,ah=L.ah0+(L.H-L.ah0)*e,rr=(1-e)*aw/2;
       st.style.setProperty('--aw',aw+'px');st.style.setProperty('--ah',ah+'px');st.style.setProperty('--ar',`${rr}px ${rr}px 0 0`);
-      st.style.setProperty('--sh',Math.min(1,e*1.4));st.style.setProperty('--co',Math.max(0,(e-.55)/.45));st.style.setProperty('--pe',e>.7?'auto':'none');
-      st.style.setProperty('--io',Math.max(0,1-e*3));st.style.setProperty('--ro',Math.max(0,1-e*1.6))}
+      st.style.setProperty('--sh',cl(e*1.7));st.style.setProperty('--pe',e>.8?'auto':'none');
+      st.style.setProperty('--io',cl(1-e*3));st.style.setProperty('--ro',cl(1-e*1.6));
+      mk.forEach((m,i)=>m.style.setProperty('--m',out(cl((e-.6-i*.07)/.26)).toFixed(4)))}
     const qq=ease(q),w=L.w0+(L.w1-L.w0)*qq,t=L.top0+(L.top1-L.top0)*qq;
-    wm.style.width=w+'px';wm.style.transform=`translate(-50%,${t}px)`;
+    wm.style.width=w+'px';wm.style.transform=`translate3d(-50%,${t}px,0)`;
     hdr.classList.toggle('solid',q>=.98||y>hero.offsetHeight-L.H-10)};
-  lay();set();addEventListener('resize',()=>{lay();set()});document.addEventListener('pagescroll',set);addEventListener('scroll',set,{passive:true})})();
+  let cur=scrollY,raf=0;
+  const tick=()=>{const tgt=scrollY;cur+=(tgt-cur)*.16;if(Math.abs(tgt-cur)<.4)cur=tgt;set(cur);raf=cur===tgt?0:requestAnimationFrame(tick)};
+  const go=()=>{if(!Motion.ok||L.mob){cur=scrollY;set(cur);return}if(!raf)raf=requestAnimationFrame(tick)};
+  lay();set(cur);addEventListener('resize',()=>{lay();set(cur=scrollY)});document.addEventListener('pagescroll',go);addEventListener('scroll',go,{passive:true})})();
 
 /* the running chapter at the edge of the page */
 (function(){const run=$('#runner'),n=run.querySelector('.n'),t=run.querySelector('.t'),chs=$$('[data-ch]');
@@ -510,9 +551,15 @@ Motion.init({intro:'rings'});
 /* chapter numerals draw on and the titles rise */
 if(Motion.ok)$$('.op').forEach(o=>{gsap.fromTo(o.querySelector('.n'),{yPercent:30,opacity:0},{yPercent:0,opacity:1,ease:'none',scrollTrigger:{trigger:o,start:'top 95%',end:'top 55%',scrub:.4}});});
 Motion.chars('.split');
-Motion.masks('.roots .pic,.ah,.euc .pic,.trip .arch,.frm .mat,.views .im,.map');
-Motion.cascade('.contents a,.rcap,.op h2,.op .label,.chron li,.pidx li,.logos div,.pillars div,.big,.lf-note,.feats li,.legend,.proof,.wh li,.record .u,.record p,.record .crt,.frm b,.frm span,.frm .yr,.ct dl>div,form,.nx-copy .lead,.lfh .lead,.roots .lead');
+Motion.masks('.g-row .im,.g-row .arch,.roots .pic,.ah,.euc .pic,.trip .arch,.frm .mat,.views .im,.map');
+Motion.cascade('.contents a,.rcap,.op h2,.op .label,.chron li,.pidx li,.logos div,.pillars div,.big,.lf-note,.feats li,.legend,.proof,.wh li,.record .u,.record p,.record .crt,.frm b,.frm span,.frm .yr,.ct dl>div,.g-facts div,.g-row figcaption,form,.nx-copy .lead,.lfh .lead,.roots .lead');
 Motion.parallax('.roots .pic img,.trip img',6);
+/* our warehouse: an arch opens onto the hall and the photograph settles */
+if(Motion.ok){const g=$('#grand'),gi=$('#grand>img'),r=()=>innerWidth>900?'50vw 50vw 0px 0px':'40vw 40vw 0px 0px';
+  gsap.fromTo(g,{clipPath:()=>`inset(5% ${innerWidth>900?16:6}% 0% ${innerWidth>900?16:6}% round ${r()})`},{clipPath:'inset(0% 0% 0% 0% round 0px 0px 0px 0px)',ease:'power1.inOut',
+    scrollTrigger:{trigger:g,start:'top 95%',end:'top 5%',scrub:.8,invalidateOnRefresh:true}});
+  gsap.fromTo(gi,{scale:1.22},{scale:1,ease:'none',scrollTrigger:{trigger:g,start:'top bottom',end:'bottom top',scrub:.8}});
+  gsap.fromTo('.g-copy .wrap>*',{y:70,clipPath:'inset(0% 0% 100% 0%)'},{y:0,clipPath:'inset(0% 0% -40% 0%)',ease:'power2.out',stagger:.1,scrollTrigger:{trigger:g,start:'top 50%',end:'top 5%',scrub:.8}})}
 /* the next home grows out of its arch as you scroll */
 if(Motion.ok&&innerWidth>900)gsap.fromTo('#nxPic',{width:'min(820px,100%)',borderRadius:'999px 999px 0px 0px'},{width:'100%',borderRadius:'24px 24px 0px 0px',ease:'none',scrollTrigger:{trigger:'#nxPic',start:'top 80%',end:'top 10%',scrub:true}});
 Motion.wordRise('.f-wm');
