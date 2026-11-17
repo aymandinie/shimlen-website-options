@@ -53,10 +53,10 @@
     box.insertAdjacentHTML('beforeend', `<video class="rv-a" autoplay muted playsinline preload="auto" aria-hidden="true"></video><video class="rv-b off" muted playsinline preload="none" aria-hidden="true"></video>`);
     const vs = $$('video', box), names = ['hero', 'aerial'], XF = .9; let cur = 0, on = false, left = false, busy = false;
     const play = v => v.play().catch(() => {});
-    vs.forEach((v, i) => { v.muted = true; v.poster = `${R}video/${names[i]}-desktop.jpg` });
+    vs.forEach((v, i) => { v.muted = true; v.poster = `${R}${window.VIDEO_DIR || 'video/'}${names[i]}-desktop.jpg` });
     if (reduceMotion) return;
-    vs[0].src = `${R}video/hero-desktop.mp4`; vs[0].load();
-    const loadSecond = () => { if (!vs[1].src) { vs[1].preload = 'auto'; vs[1].src = `${R}video/aerial-desktop.mp4`; vs[1].load() } };
+    vs[0].src = `${R}${window.VIDEO_DIR || 'video/'}hero-desktop.mp4`; vs[0].load();
+    const loadSecond = () => { if (!vs[1].src) { vs[1].preload = 'auto'; vs[1].src = `${R}${window.VIDEO_DIR || 'video/'}aerial-desktop.mp4`; vs[1].load() } };
     vs[0].addEventListener('playing', () => setTimeout(loadSecond, 1500), {once: true});
     const swap = () => {
       if (busy) return; busy = true; loadSecond(); const a = vs[cur], b = vs[1 - cur];
@@ -82,9 +82,9 @@
   function film(box, name) {
     if (!box) return;
     box.insertAdjacentHTML('beforeend', `<video muted loop playsinline preload="metadata" aria-hidden="true"></video>`);
-    const v = $('video', box); v.muted = true; v.poster = `${R}video/${name}-desktop.jpg`;
+    const v = $('video', box); v.muted = true; v.poster = `${R}${window.VIDEO_DIR || 'video/'}${name}-desktop.jpg`;
     if (reduceMotion) return;
-    v.src = `${R}video/${name}-desktop.mp4`;
+    v.src = `${R}${window.VIDEO_DIR || 'video/'}${name}-desktop.mp4`;
     let on = false, left = false;
     v.addEventListener('canplay', () => { if (on && v.paused) v.play().catch(() => {}) });
     film.list = (film.list || []).concat(() => { if (on && v.paused) v.play().catch(() => {}) });

@@ -1,10 +1,11 @@
 /* Revamp layer, loaded after data.js on the revamp pages only.
    1. Swaps Shimlen's site photos for stock sample photos (the client asked for samples until their photoshoot).
-      The hero and warehouse films stay: they show the real scale of the place.
-   2. Writes four story sections (rooms, board to room, people, belief) that each design themes with --sl-* tokens.
+      The hero and warehouse films are swapped for sample footage of the same kind (aerial site, warehouse floor).
+  2. Writes four story sections (rooms, board to room, people, belief) that each design themes with --sl-* tokens.
    3. Tags every stock picture "Sample photo". */
 (function () {
   const S = window.SH, K = 'img/stock/';
+  window.VIDEO_DIR = 'video/stock/'; /* sample drone and warehouse footage (Pexels) instead of Shimlen's own */
   S.about.img = K + 'wh-panels.jpg';
   S.about.caption = 'Sample photo · our warehouse will be photographed after the move';
   S.warehouse.gallery = [[K + 'wh-racking.jpg', 'Racking, floor to ceiling'], [K + 'wh-panels.jpg', 'Panels ready to go'], [K + 'wh-people.jpg', 'Our floor team']];
@@ -45,6 +46,8 @@
   function init() {
     /* sample tags on any stock picture the page itself rendered */
     document.querySelectorAll(`img[src*="/${K}"]`).forEach(i => { const p = i.parentElement; if (!p.closest('.smp')) p.classList.add('smp') });
+    /* sample tag on the films */
+    ['heroReel', 'whFilm'].forEach(id => { const b = document.getElementById(id); if (!b) return; b.classList.add('smpv'); if (getComputedStyle(b).position === 'static') b.style.position = 'relative' });
     /* board to room: the step in the middle of the screen turns the picture */
     const st = [...document.querySelectorAll('.sl-step')], fs = [...document.querySelectorAll('.sl-pics figure')], n = document.querySelector('.sl-n'); let c = 0;
     if (!st.length) return;

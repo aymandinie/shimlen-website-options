@@ -89,3 +89,5 @@
 }
 .sl.dk{--sl-bg:#2A2322;--sl-fg:#F3EFEA;--sl-mut:rgba(243,239,234,.7);--sl-line:rgba(255,255,255,.14);--sl-acc:#D9CAC0}
 .sl-note{font-size:12px;opacity:.65;text-align:center;padding:18px 16px 26px}
+.smpv::after{content:"Sample footage";position:absolute;right:14px;bottom:14px;z-index:4;font:500 10.5px/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:6px 8px;background:rgba(20,16,15,.55);color:#fff;border-radius:3px;pointer-events:none}
+#heroReel.smpv::after{right:auto;left:14px}
