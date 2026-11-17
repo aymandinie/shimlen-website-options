@@ -1,0 +1,89 @@
+/* Revamp kit (Set B): opening screens, render reel, sample tags. Each page sets --rxl-bg / --rxl-fg. */
+
+/* until the opening screen is up, a plain cover in its colour (added by an inline script in <head>) */
+html.rx-loading{overflow:hidden}
+html.rx-loading body::before{content:"";position:fixed;inset:0;background:var(--rxl-bg,#F3EFEA);z-index:199}
+.rxl{position:fixed;inset:0;z-index:200;pointer-events:none;color:var(--rxl-fg,#231F20);will-change:opacity,transform}
+
+/* 1 · dawn (Open) */
+.rxl-dawn{background:var(--rxl-bg,#F3EFEA)}
+.rxl-dawn .rxl-c{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:26px;text-align:center}
+.rxl-dawn .rxl-logo{width:min(300px,62vw)}
+.rxl-dawn .rxl-tag{font:400 12px/1 "Saira","Helvetica Neue",sans-serif;text-transform:uppercase;letter-spacing:.26em;color:var(--rxl-mut,#736A68);padding-left:.26em}
+.rxl-dawn .rxl-foot{position:absolute;left:0;right:0;bottom:clamp(22px,4vh,40px);display:flex;justify-content:space-between;padding:0 clamp(16px,3vw,40px);font:400 12.5px/1 "Helvetica Neue",Arial,sans-serif;color:var(--rxl-mut,#736A68);letter-spacing:.04em}
+.rxl-dawn .rxl-pct{font-variant-numeric:tabular-nums;min-width:3ch;text-align:center}
+.rxl-dawn .rxl-pct::after{content:"%"}
+.rxl-dawn .rxl-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--rxl-fg,#231F20);transform-origin:left;transform:scaleX(0)}
+
+/* 2 · chapter (Heartwood) */
+.rxl-chapter .rxl-mask{position:absolute;inset:0;width:100%;height:100%}
+.rxl-chapter .rxl-mask path{fill:var(--rxl-bg,#231D1B)}
+.rxl-chapter .rxl-c{position:absolute;left:50%;top:50%;width:min(240px,52vw);aspect-ratio:220/300;transform:translate(-50%,-50%);display:grid;place-items:center}
+.rxl-chapter .rxl-arch{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.rxl-chapter .rxl-arch path{fill:none;stroke:var(--rxl-acc,#C4B0A5);stroke-width:1.2;opacity:.85}
+.rxl-chapter .rxl-arch path.in{stroke-width:.7;opacity:.45}
+.rxl-chapter .rxl-in{text-align:center;padding-top:22%}
+.rxl-chapter .rxl-k{font:italic 300 18px/1 "Fraunces",Georgia,serif;color:var(--rxl-acc,#C4B0A5)}
+.rxl-chapter .rxl-year{font:300 clamp(54px,9vw,84px)/1 "Fraunces",Georgia,serif;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums;margin:10px 0 14px;font-variation-settings:"opsz" 144}
+.rxl-chapter .rxl-sub{font:400 10.5px/1.5 "Helvetica Neue",Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase;opacity:.7;max-width:20ch;margin:0 auto}
+
+/* 3 · index (Studio) */
+.rxl-index{background:var(--rxl-bg,#ECE9E4);font-family:"Inter Tight","Helvetica Neue",Arial,sans-serif}
+.rxl-index .rxl-grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(12,1fr);padding:0 clamp(16px,2.6vw,34px);pointer-events:none}
+.rxl-index .rxl-grid i{border-left:1px solid rgba(30,27,27,.07);transform-origin:top}
+.rxl-index .rxl-grid i:last-child{border-right:1px solid rgba(30,27,27,.07)}
+.rxl-index .rxl-top,.rxl-index .rxl-bot{position:absolute;left:0;right:0;display:grid;grid-template-columns:repeat(3,1fr);padding:0 clamp(16px,2.6vw,34px);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+.rxl-index .rxl-top{top:0;padding-top:clamp(16px,2.4vw,28px);padding-bottom:14px;border-bottom:1px solid rgba(30,27,27,.14)}
+.rxl-index .rxl-bot{bottom:0;padding-bottom:clamp(16px,2.4vw,28px)}
+.rxl-index .rxl-top span,.rxl-index .rxl-bot span{display:block;overflow:hidden}
+.rxl-index .rxl-top span:nth-child(2){text-align:center}.rxl-index .rxl-top span:nth-child(3),.rxl-index .rxl-bot .rxl-cnt{text-align:right}
+.rxl-index .rxl-bot .rxl-cnt{grid-column:3;font-variant-numeric:tabular-nums}
+.rxl-index .rxl-bar{position:absolute;left:clamp(16px,2.6vw,34px);right:clamp(16px,2.6vw,34px);top:-16px;height:1px;background:var(--rxl-fg,#1E1B1B);transform-origin:left;transform:scaleX(0)}
+.rxl-index .rxl-list{position:absolute;left:calc(clamp(16px,2.6vw,34px) + (100vw - 2*clamp(16px,2.6vw,34px))/12*4);right:clamp(16px,2.6vw,34px);top:50%;transform:translateY(-50%);list-style:none}
+.rxl-index .rxl-list li{display:grid;grid-template-columns:4ch 1fr;gap:12px;align-items:baseline;padding:5px 0;border-top:1px solid transparent;color:rgba(30,27,27,.32);transition:color .5s}
+.rxl-index .rxl-list li.on{border-color:rgba(30,27,27,.12);color:var(--rxl-fg,#1E1B1B)}
+.rxl-index .rxl-list li.on:last-child,.rxl-index .rxl-list li.on:has(+li:not(.on)){color:var(--rxl-fg,#1E1B1B)}
+.rxl-index .rxl-list li:not(.on)>*{transform:translateY(105%)}
+.rxl-index .rxl-list li{overflow:hidden}
+.rxl-index .rxl-list .n{font-size:12.5px;font-variant-numeric:tabular-nums;color:var(--rxl-mut,#736A68)}
+.rxl-index .rxl-list .t{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 16px}
+.rxl-index .rxl-list b{font-weight:500;font-size:clamp(20px,2.3vw,34px);letter-spacing:-.03em;line-height:1.1}
+.rxl-index .rxl-list em{font-style:normal;font-size:13px;color:var(--rxl-mut,#736A68)}
+@media (max-width:760px){.rxl-index .rxl-list{left:clamp(16px,2.6vw,34px)}.rxl-index .rxl-top{grid-template-columns:1fr 1fr}.rxl-index .rxl-top span:nth-child(2){display:none}.rxl-index .rxl-bot{grid-template-columns:1fr 1fr}.rxl-index .rxl-bot .rxl-cnt{grid-column:2}}
+
+/* 4 · stack (Quiet): boards stack up under the words */
+.rxl-stack{background:#fff;overflow:hidden;font-family:"Inter","Helvetica Neue",Arial,sans-serif}
+.rxl-stack .rxl-b{position:absolute;left:0;right:0;height:calc(8.5% + 1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -1px 0 rgba(0,0,0,.06)}
+.rxl-stack .rxl-b span{position:absolute;right:clamp(16px,3vw,40px);top:50%;transform:translateY(-50%);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(31,27,25,.62)}
+.rxl-stack .rxl-b.dk span{color:rgba(255,255,255,.7)}
+.rxl-stack .rxl-top{position:absolute;left:clamp(16px,3vw,40px);right:clamp(16px,3vw,40px);top:clamp(64px,11vh,120px);display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.rxl-stack .rxl-t{color:#1F1B19;font:500 clamp(40px,6.2vw,104px)/.95 "Inter","Helvetica Neue",sans-serif;letter-spacing:-.05em;max-width:12ch}
+.rxl-stack .rxl-t em{font-family:"Instrument Serif",Georgia,serif;font-weight:400;letter-spacing:-.01em}
+.rxl-stack .rxl-cnt{display:flex;flex-direction:column;gap:6px;color:#1F1B19;text-align:right;padding-top:8px}
+.rxl-stack .rxl-cnt b{font-weight:500;font-size:clamp(24px,2.6vw,36px);letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
+.rxl-stack .rxl-cnt span{font-size:12.5px;color:#6E6663;max-width:22ch;line-height:1.35;margin-left:auto}
+@media (max-width:640px){.rxl-stack .rxl-cnt{text-align:left}.rxl-stack .rxl-cnt span{margin-left:0}}
+
+/* ======================= render reel ======================= */
+.rr{overflow:hidden;z-index:0}
+.rr figure{position:absolute;inset:0;margin:0;opacity:0}
+.rr figure.on{opacity:1}
+.rr figure img{width:100%;height:100%;object-fit:cover;display:block}
+.rr-slow figure{transition:opacity 2.8s ease-in-out}
+.rr-slow figure img{transform:scale(1.02);transition:transform 12s cubic-bezier(.25,.1,.25,1)}
+.rr-slow figure.on img{transform:scale(1.09)}
+.rr-fade figure{transition:opacity 1.6s ease-in-out}
+.rr-night figure img{object-position:50% 40%}
+.rr-bl{position:absolute;inset:0;z-index:2;pointer-events:none}
+.rr-blinds.rnd::after{top:calc(var(--hh,76px) + 14px)}
+.rr-bl i{position:absolute;top:0;bottom:0;overflow:hidden;display:block}
+.rr-bl img{position:absolute;top:0;height:100%;max-width:none;object-fit:cover}
+@media (prefers-reduced-motion:reduce){.rr-slow figure img{transition:none;transform:none}}
+
+/* ======================= tags ======================= */
+.smp::after,.rnd::after{position:absolute;right:10px;top:10px;z-index:4;font:500 10px/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;
+  padding:6px 8px;background:rgba(20,16,15,.5);color:#fff;border-radius:3px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);pointer-events:none;white-space:nowrap}
+.smp::after{content:"Sample photo"}
+.rnd::after{content:"Artist’s impression"}
+.tag-sm::after{content:none!important}
+.rx-note{font-size:12px;line-height:1.5;opacity:.6;text-align:center;padding:16px 16px 24px;max-width:90ch;margin:0 auto}
