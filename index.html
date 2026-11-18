@@ -213,7 +213,7 @@ footer{padding:18px 0 28px;font-size:12px;color:var(--ink2)}
       card.style.left=Math.min(innerWidth-cw-16,Math.max(16,o.left+28))+'px';card.style.top=Math.max(16,Math.min(innerHeight-ch-16,o.top+28))+'px'}
     else{card.style.left=((innerWidth-cw)/2)+'px';card.style.top=Math.max(16,innerHeight-ch-20)+'px'}};
   const show=()=>{G.classList.add('on');document.body.classList.add('guiding');place();setTimeout(()=>document.getElementById('gOk').focus({preventScroll:true}),100)};
-  const hide=()=>{G.classList.remove('on');document.body.classList.remove('guiding');try{localStorage.setItem('shimlenGuide','1')}catch(e){}};
+  const hide=()=>{G.classList.remove('on');document.body.classList.remove('guiding')};
   document.getElementById('gOk').addEventListener('click',hide);
   document.getElementById('help').addEventListener('click',()=>{scrollTo({top:0,behavior:reduce?'auto':'smooth'});setTimeout(show,reduce?0:300)});
   addEventListener('keydown',e=>{if(e.key==='Escape'&&G.classList.contains('on'))hide()});
@@ -221,8 +221,8 @@ footer{padding:18px 0 28px;font-size:12px;color:var(--ink2)}
   addEventListener('scroll',()=>{if(G.classList.contains('on'))place()},{passive:true});
   /* the card follows whichever tile is open while the guide is up */
   acc.addEventListener('transitionend',e=>{if(e.propertyName==='flex-grow'&&G.classList.contains('on'))place()});
-  let seen=false;try{seen=localStorage.getItem('shimlenGuide')==='1'}catch(e){}
-  if(!seen&&location.search.indexOf('shot')<0)setTimeout(show,700);
+  /* the guide opens every time the page loads */
+  if(location.search.indexOf('shot')<0)setTimeout(show,700);
 })();
 </script>
 </body>
