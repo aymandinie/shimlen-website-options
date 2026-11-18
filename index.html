@@ -3,126 +3,82 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Shimlen · Website directions</title>
-<meta name="description" content="Eight design directions for the new Shimlen website: four revamped designs first, then the four originals. Point at a tile to open it up.">
+<title>Shimlen · Website options</title>
+<meta name="description" content="Design options for the new Shimlen website.">
 <link rel="icon" href="img/logo-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;1,9..144,300&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:"Saira";src:url("fonts/Saira.ttf") format("truetype");font-weight:100 900;font-display:swap}
 :root{--ease:cubic-bezier(.22,1,.36,1);--glide:cubic-bezier(.65,0,.35,1);--page:#E9E4DE;--ink:#231F20;--ink2:#5A5251;--acc:#867774;--line:rgba(35,31,32,.14)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--page);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
 a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 img{display:block;max-width:none}
 .wrap{width:min(1440px,calc(100vw - 2*clamp(16px,3vw,48px)));margin:0 auto}
 
 /* each tile wears the colours and type of the design it shows */
-.t1{--bg:#F3EFEA;--fg:#231F20;--fg2:#544C4B;--mut:#6F6664;--ln:rgba(35,31,32,.14);--ac:#867774;--btn:#231F20;--btnf:#fff;--nf:"Saira",sans-serif;--nw:300;--ns:normal;--nl:-.02em}
-.t2{--bg:#231D1B;--fg:#F1EAE3;--fg2:rgba(241,234,227,.8);--mut:rgba(241,234,227,.62);--ln:rgba(241,234,227,.16);--ac:#C4B0A5;--btn:#F1EAE3;--btnf:#231D1B;--nf:"Fraunces",Georgia,serif;--nw:300;--ns:italic;--nl:-.02em}
-.t3{--bg:#F7F5F2;--fg:#1E1B1B;--fg2:#4D4746;--mut:#6B6260;--ln:rgba(30,27,27,.16);--ac:#867774;--btn:#1E1B1B;--btnf:#F7F5F2;--nf:"Inter Tight","Helvetica Neue",sans-serif;--nw:500;--ns:normal;--nl:-.055em}
-.t4{--bg:#fff;--fg:#1F1B19;--fg2:#5B5451;--mut:#6E6663;--ln:#E7E1DB;--ac:#5F6B58;--btn:#5F6B58;--btnf:#fff;--nf:"Inter","Helvetica Neue",sans-serif;--nw:500;--ns:normal;--nl:-.055em}
+.t1{--bg:#F3EFEA;--fg:#231F20;--mut:#6F6664;--ln:rgba(35,31,32,.14);--ac:#867774;--btn:#231F20;--btnf:#fff;--nf:"Saira",sans-serif;--nw:300;--ns:normal;--nl:-.02em}
+.t2{--bg:#231D1B;--fg:#F1EAE3;--mut:rgba(241,234,227,.62);--ln:rgba(241,234,227,.16);--ac:#C4B0A5;--btn:#F1EAE3;--btnf:#231D1B;--nf:"Fraunces",Georgia,serif;--nw:300;--ns:italic;--nl:-.02em}
+.t4{--bg:#fff;--fg:#1F1B19;--mut:#6E6663;--ln:#E7E1DB;--ac:#5F6B58;--btn:#5F6B58;--btnf:#fff;--nf:"Inter","Helvetica Neue",sans-serif;--nw:500;--ns:normal;--nl:-.055em}
 
 /* ---------- top ---------- */
-.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0 0}
-.top img{width:150px}
-.top nav{display:flex;gap:8px;font-size:13.5px}
-.top nav a{padding:8px 14px;border-radius:99px;border:1px solid var(--line);transition:background .3s,color .3s}
-.top nav a:hover{background:var(--ink);color:#fff}
-.intro{display:grid;grid-template-columns:1.2fr 1fr;gap:20px 60px;align-items:end;padding:clamp(40px,6vw,84px) 0 clamp(26px,3vw,40px)}
-.k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
-.intro h1{font-family:"Saira",sans-serif;font-weight:300;font-size:clamp(38px,5vw,76px);line-height:1;letter-spacing:-.02em;margin-top:14px;text-wrap:balance}
-.intro p{font-size:16.5px;color:var(--ink2);max-width:46ch}
-@media (max-width:900px){.intro{grid-template-columns:1fr}}
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:clamp(20px,3vh,30px) 0 clamp(18px,3vh,30px)}
+.top img{width:140px}
+.top h1{font-family:"Saira",sans-serif;font-weight:400;font-size:clamp(18px,1.6vw,22px)}
+.top h1 span{color:var(--acc);font-weight:300}
+.help{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;border:1px solid var(--line);font-size:13px;transition:background .3s,color .3s}
+.help:hover{background:var(--ink);color:#fff}
+.help b{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px}
+.help:hover b{background:#fff;color:var(--ink)}
 
-/* ---------- a set ---------- */
-.set{padding-bottom:clamp(50px,6vw,90px)}
-.sh{display:flex;justify-content:space-between;align-items:baseline;gap:6px 24px;flex-wrap:wrap;padding-bottom:14px;margin-bottom:16px;border-bottom:1px solid var(--ink)}
-.sh h2{font-family:"Saira",sans-serif;font-weight:400;font-size:clamp(22px,2vw,28px)}
-.sh h2 span{color:var(--acc);font-weight:300}
-.sh p{font-size:13.5px;color:var(--ink2)}
-.sh .tip{display:inline-flex;align-items:center;gap:8px}
-.sh .tip i{width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 2.4s ease-in-out infinite}
-@keyframes blink{50%{opacity:.25}}
-
-/* ---------- the tiles: four side by side; the one you point at opens up ---------- */
-.acc{--grow:4.6;--gap:10px;display:flex;gap:var(--gap);height:clamp(600px,80svh,800px)}
-.acc.sm{height:clamp(560px,74svh,740px)}
+/* ---------- the tiles: side by side; the one you point at opens up ---------- */
+.acc{--grow:4;--gap:12px;display:flex;gap:var(--gap);height:clamp(560px,calc(100svh - 120px),820px)}
 .tile{position:relative;flex:1 1 0;min-width:0;border-radius:18px;overflow:hidden;background:var(--bg);color:var(--fg);cursor:pointer;outline:none;
   box-shadow:0 0 0 1px rgba(35,31,32,.1),0 24px 50px -34px rgba(20,14,12,.5);transition:flex-grow .95s var(--glide),box-shadow .6s}
 .tile.on{flex-grow:var(--grow);cursor:default;box-shadow:0 0 0 1px rgba(35,31,32,.12),0 40px 80px -40px rgba(20,14,12,.6)}
 .tile:focus-visible{box-shadow:0 0 0 3px var(--acc)}
 .more,.in{display:contents}
-.pic{position:absolute;left:0;right:0;top:0;height:46%;overflow:hidden;background:#d9d3cd;border-bottom:1px solid var(--ln)}
-.pic>img{position:absolute;left:50%;top:0;width:var(--aw,800px);height:auto;--tx:-50%;transform:translate3d(-50%,0,0);will-change:transform}
-.ph{position:absolute;bottom:calc(54% + 16px);left:calc(var(--aw,800px) - 28px - var(--pw));--pw:clamp(96px,8.4vw,134px);width:var(--pw);aspect-ratio:390/820;
-  border-radius:20px;padding:5px;background:#141111;box-shadow:0 24px 50px -14px rgba(20,14,12,.55);z-index:3;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .8s var(--ease)}
-.ph .scr{position:absolute;inset:5px;border-radius:15px;overflow:hidden;background:#fff}
+.pic{position:absolute;left:0;right:0;top:0;height:64%;overflow:hidden;background:#d9d3cd;border-bottom:1px solid var(--ln)}
+.pic>img{position:absolute;left:50%;top:0;width:var(--aw,900px);height:auto;--tx:-50%;transform:translate3d(-50%,0,0);will-change:transform}
+.ph{position:absolute;bottom:calc(36% + 18px);left:calc(var(--aw,900px) - 30px - var(--pw));--pw:clamp(110px,9vw,150px);width:var(--pw);aspect-ratio:390/820;
+  border-radius:22px;padding:5px;background:#141111;box-shadow:0 24px 50px -14px rgba(20,14,12,.55);z-index:3;opacity:0;transform:translateY(20px);transition:opacity .5s,transform .8s var(--ease)}
+.ph .scr{position:absolute;inset:5px;border-radius:17px;overflow:hidden;background:#fff}
 .ph .scr img{width:100%;height:auto;--tx:0px;will-change:transform}
 .tile.on .ph{opacity:1;transform:none;transition-delay:.35s}
 
 /* closed: a number and the name running up the side */
-.lab{position:absolute;left:0;right:0;top:46%;bottom:0;padding:20px 18px 22px;display:flex;flex-direction:column;justify-content:space-between;transition:opacity .45s;pointer-events:none}
+.lab{position:absolute;left:0;right:0;top:64%;bottom:0;padding:18px 18px 22px;display:flex;flex-direction:column;justify-content:space-between;transition:opacity .45s;pointer-events:none}
 .tile.on .lab{opacity:0}
 .tile:not(.on) .lab{transition-delay:.25s}
 .lab .no{display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:.12em;color:var(--mut)}
 .lab .no b{font-weight:500;color:var(--ac)}
 .lab .no svg{width:18px;height:18px;opacity:.6}
-.lab .vn{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--nf);font-weight:var(--nw);font-style:var(--ns);letter-spacing:var(--nl);font-size:clamp(34px,3.2vw,54px);line-height:1;white-space:nowrap}
+.lab .vn{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--nf);font-weight:var(--nw);font-style:var(--ns);letter-spacing:var(--nl);font-size:clamp(32px,3vw,50px);line-height:1;white-space:nowrap}
 .lab .vn em,.body .nm em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
-.lab .ln{font-size:12.5px;color:var(--mut);writing-mode:vertical-rl;transform:rotate(180deg);margin-left:6px}
-.lab .bot{display:flex;align-items:flex-end}
 
-/* open: the design up top, the words underneath on a solid ground (never over a picture) */
-.body{position:absolute;left:0;top:46%;bottom:0;width:var(--aw,800px);padding:clamp(18px,2.4vh,26px) clamp(20px,2.2vw,32px) clamp(18px,2.4vh,26px);
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(20px,2.4vw,36px);opacity:0;transform:translate3d(0,16px,0);
-  transition:opacity .35s,transform .5s var(--ease);pointer-events:none}
+/* open: the design up top, a few words underneath on a solid ground */
+.body{position:absolute;left:0;top:64%;bottom:0;width:var(--aw,900px);padding:clamp(18px,2.6vh,28px) clamp(22px,2.4vw,36px);
+  display:flex;justify-content:space-between;align-items:center;gap:24px;opacity:0;transform:translate3d(0,14px,0);transition:opacity .35s,transform .5s var(--ease);pointer-events:none}
 .tile.on .body{opacity:1;transform:none;transition:opacity .6s .38s,transform .9s var(--ease) .32s;pointer-events:auto}
-.body .kk{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ac)}
-.body .kk span{letter-spacing:.06em;padding:3px 8px;border-radius:99px;background:var(--ac);color:var(--bg);font-size:10.5px}
-.body .kk span.o{background:none;border:1px solid var(--ln);color:var(--mut)}
-.body .nm{font-family:var(--nf);font-weight:var(--nw);font-style:var(--ns);letter-spacing:var(--nl);font-size:clamp(40px,min(4.4vw,7.4vh),70px);line-height:.98;margin:10px 0 4px;padding-bottom:.05em}
-.body .was{font-size:12px;color:var(--mut)}
-.body .one{font-size:clamp(14.5px,1.1vw,16.5px);line-height:1.5;margin-top:clamp(10px,1.6vh,16px);max-width:36ch}
-.body .l{display:flex;flex-direction:column}
-.cta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:14px}
-.go{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:99px;background:var(--btn);color:var(--btnf);font-size:14px;font-weight:500;transition:transform .5s var(--ease),box-shadow .5s}
+.body .nm{font-family:var(--nf);font-weight:var(--nw);font-style:var(--ns);letter-spacing:var(--nl);font-size:clamp(38px,min(4vw,7vh),64px);line-height:1;padding-bottom:.05em}
+.body .one{font-size:clamp(14.5px,1.1vw,16.5px);line-height:1.45;margin-top:6px;max-width:44ch}
+.body .like{font-size:12.5px;color:var(--mut);margin-top:8px}
+.go{flex:none;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:99px;background:var(--btn);color:var(--btnf);font-size:15px;font-weight:500;transition:transform .5s var(--ease),box-shadow .5s}
 .go:hover{transform:translateY(-2px);box-shadow:0 12px 26px -8px rgba(0,0,0,.35)}
-.go svg{width:15px;height:15px;transition:transform .4s var(--ease)}
+.go svg{width:16px;height:16px;transition:transform .4s var(--ease)}
 .go:hover svg{transform:translateX(4px)}
-.pal{display:flex;gap:5px}
-.pal i{width:14px;height:14px;border-radius:50%;box-shadow:0 0 0 1px var(--ln)}
-.see{list-style:none;counter-reset:s;border-top:1px solid var(--ln)}
-.see li{display:grid;grid-template-columns:22px 1fr;gap:4px;padding:clamp(5px,.9vh,8px) 0;border-bottom:1px solid var(--ln);font-size:13px;line-height:1.4;color:var(--fg2)}
-.see li::before{content:counter(s,decimal-leading-zero);counter-increment:s;font-size:11px;color:var(--ac);padding-top:2px}
-.seen{margin-top:clamp(10px,1.6vh,16px)}
-.seen h3{font-size:10.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:4px}
-.ex{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;padding:5px 10px;margin:0 -10px;border-radius:8px;transition:background .3s}
-.ex:hover{background:color-mix(in srgb,var(--fg) 7%,transparent)}
-.ex b{font-size:13.5px;font-weight:500}
-.ex span{grid-column:1;font-size:12.5px;color:var(--mut);line-height:1.35}
-.ex svg{grid-row:1/3;grid-column:2;width:14px;height:14px;margin-top:3px;opacity:.55}
 
-/* a narrower computer: one column of words, the list of moments left out */
-@media (max-width:1240px) and (min-width:861px){
-  .acc{--grow:5.2;height:clamp(600px,84svh,780px)}
-  .body .r .see,.body .was{display:none}.body .seen{margin-top:0}
-  .body .nm{font-size:clamp(36px,4.4vw,52px)}
-}
-@media (min-width:861px) and (max-height:820px){.body .was,.body .r .see{display:none}.body .one{margin-top:8px}.body .seen{margin-top:0}}
+@media (max-width:1100px) and (min-width:861px){.body{flex-direction:column;align-items:flex-start;justify-content:center;gap:14px}.body .like{display:none}}
 /* phones and tablets: the tiles stack and open downwards */
 @media (max-width:860px){
-  .acc,.acc.sm{flex-direction:column;height:auto;gap:8px}
+  .acc{flex-direction:column;height:auto;gap:8px}
   .tile{flex:none;border-radius:14px}
   .tile.on{flex-grow:0}
-  .lab{position:relative;top:auto;flex-direction:row;align-items:center;gap:14px;padding:16px 16px 16px 18px;min-height:76px;pointer-events:auto}
+  .lab{position:relative;top:auto;flex-direction:row;align-items:center;padding:16px 18px;min-height:74px;pointer-events:auto}
   .tile.on .lab{opacity:1}
-  .lab .bot{order:-1;flex:1;flex-direction:column;align-items:flex-start}
-  .lab .vn,.lab .ln{writing-mode:horizontal-tb;transform:none}
-  .lab .vn{font-size:30px}
-  .lab .ln{display:block;margin:4px 0 0;font-size:12.5px}
+  .lab .vn{writing-mode:horizontal-tb;transform:none;font-size:30px;order:-1}
   .lab .no{gap:12px}
   .lab .no svg{transition:transform .5s var(--ease)}
   .tile.on .lab .no svg{transform:rotate(45deg)}
@@ -132,195 +88,141 @@ img{display:block;max-width:none}
   .pic{position:relative;height:auto;aspect-ratio:16/11;margin:0 12px;border-radius:10px;border:1px solid var(--ln)}
   .pic>img{left:0;width:100%;--tx:0px;transform:none}
   .ph{display:none}
-  .body{position:relative;top:auto;width:auto;display:block;padding:16px 18px 22px}
-  .body .nm{display:none}.body .kk{display:none}.body .was{margin-top:-2px}
-  .cta{margin-top:16px}
-  .seen{margin-top:16px}
-  .see{margin-top:16px}
+  .body{position:relative;top:auto;width:auto;display:block;padding:14px 18px 20px}
+  .body .nm{display:none}.body .one{margin-top:0}
+  .go{margin-top:14px}
 }
-@media (prefers-reduced-motion:reduce){.tile,.body,.lab,.ph,.more{transition:none!important}.sh .tip i{animation:none}}
+@media (prefers-reduced-motion:reduce){.tile,.body,.lab,.ph,.more,.guide,.gcard{transition:none!important}}
 
-footer{display:flex;justify-content:space-between;gap:10px 30px;flex-wrap:wrap;padding:22px 0 34px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2)}
+footer{padding:18px 0 28px;font-size:12px;color:var(--ink2)}
+@media (max-width:600px){.top{flex-wrap:wrap;row-gap:14px}.top img{width:120px}.top h1{order:3;width:100%;font-size:19px}.help span{display:none}.help{padding:7px}}
+
+/* ---------- the guide: shown on the first visit, and from the "How to use" button ---------- */
+.guide{position:fixed;inset:0;z-index:90;pointer-events:none;opacity:0;visibility:hidden;transition:opacity .5s,visibility .5s}
+.guide.on{opacity:1;visibility:visible}
+.hole{position:fixed;border-radius:22px;box-shadow:0 0 0 200vmax rgba(20,16,15,.62);transition:all .5s var(--ease)}
+.gcard{position:fixed;width:min(380px,calc(100vw - 32px));background:#fff;color:var(--ink);border-radius:16px;padding:22px 22px 18px;pointer-events:auto;
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.5);transform:translateY(10px);transition:transform .6s var(--ease)}
+.guide.on .gcard{transform:none}
+.gcard h2{font-family:"Saira",sans-serif;font-weight:400;font-size:20px;margin-bottom:12px}
+.gcard ol{list-style:none;display:grid;gap:12px}
+.gcard li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;font-size:14.5px;line-height:1.4}
+.gcard li i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#F3EFEA;color:var(--ink)}
+.gcard li i svg{width:18px;height:18px}
+.gcard li b{font-weight:500}
+.gcard .ok{margin-top:16px;width:100%;padding:12px;border-radius:99px;background:var(--ink);color:#fff;font-size:14.5px;font-weight:500}
+.gcard .ok:hover{background:var(--acc)}
+.gcard .tch{display:none}
+@media (hover:none),(max-width:860px){.gcard .mse{display:none}.gcard .tch{display:inline}}
+/* while the guide is up, the open tile's button pulses to show where to click */
+.guiding .tile.on .go{animation:pulse 1.8s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.75),0 0 0 0 rgba(134,119,116,.6)}100%{box-shadow:0 0 0 10px rgba(255,255,255,0),0 0 0 22px rgba(134,119,116,0)}}
+.guiding .tile:not(.on) .lab .no svg{animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{50%{transform:scale(1.35);opacity:1}}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header class="top"><img src="img/logo-horizontal.svg" alt="Shimlen"><nav aria-label="Sets"><a href="#revamped">Revamped</a><a href="#originals">Originals</a></nav></header>
-<section class="intro">
-  <div><div class="k">New website · design directions</div><h1>Eight looks for the new Shimlen website.</h1></div>
-  <p>Every design carries the same words, products and facts; only the way the story is told changes. The four revamped designs come first and the originals they grew from follow. Point at a design to open it up, with bigger brands that work the same way.</p>
-</section>
+<header class="top"><img src="img/logo-horizontal.svg" alt="Shimlen"><h1>Website options <span>· Revamped</span></h1><button class="help" id="help" type="button" aria-label="How to use this page"><b>?</b><span>How to use</span></button></header>
 
-<section class="set" id="revamped">
-  <div class="sh"><h2>Set B <span>· Revamped</span></h2><p class="tip"><i></i>Newest work · point at a design to open it</p></div>
-  <div class="acc">
+<div class="acc" id="acc">
 
-    <article class="tile t1 on" tabindex="0" aria-label="Daylight, revamp 1">
-      <div class="lab"><div class="no"><b>01</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Daylight</div><div class="ln">Light and story-first</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-revamp-1.jpg" alt="Daylight on a computer"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-revamp-1.jpg" alt="Daylight on a phone"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Revamp 1 <span>New</span></div><h3 class="nm">Daylight</h3><div class="was">First called “Open”</div>
-            <p class="one">Light, calm and story-first, like being shown round by someone who knows the place.</p>
-            <div class="cta"><a class="go" href="revamp-1/index.html">Open Daylight <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><div class="pal"><i style="background:#F3EFEA"></i><i style="background:#231F20"></i><i style="background:#867774"></i></div></div></div>
-          <div class="r"><ul class="see"><li>The logo draws itself in, then the new building turns from dawn to dusk beside the words.</li><li>An aerial photo opens to full width for 10,000 m², about 108,000 sq ft.</li><li>Each room rises over the last as you read; Board, Surface and Edge open as tall panels.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://www.apple.com" target="_blank" rel="noopener"><b>Apple</b><span>Pictures hold still while the words scroll past; photos open to full screen.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-              <a class="ex" href="https://www.egger.com" target="_blank" rel="noopener"><b>EGGER</b><span>A board maker writing for the same carpenters and designers, calmly.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
+  <article class="tile t1 on" tabindex="0" aria-label="Daylight">
+    <div class="lab"><div class="no"><b>01</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="vn">Daylight</div></div>
+    <div class="more"><div class="in">
+      <div class="pic"><img src="previews/d-revamp-1.jpg" alt="Daylight on a computer"></div>
+      <div class="ph"><div class="scr"><img src="previews/m-revamp-1.jpg" alt="Daylight on a phone"></div></div>
+      <div class="body"><div><h2 class="nm">Daylight</h2><p class="one">Light, calm and story-first.</p><p class="like">Works like Apple and EGGER</p></div>
+        <a class="go" href="revamp-1/index.html">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div></div>
+  </article>
 
-    <article class="tile t2" tabindex="0" aria-label="Chronicle, revamp 2">
-      <div class="lab"><div class="no"><b>02</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Chronicle</div><div class="ln">Dark walnut, in five chapters</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-revamp-2.jpg" alt="Chronicle on a computer"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-revamp-2.jpg" alt="Chronicle on a phone"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Revamp 2 <span>New</span></div><h3 class="nm">Chronicle</h3><div class="was">First called “Heartwood”</div>
-            <p class="one">Dark walnut and cream, told as a book in five chapters: Roots, Range, Health, Scale and Next.</p>
-            <div class="cta"><a class="go" href="revamp-2/index.html">Open Chronicle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><div class="pal"><i style="background:#231D1B"></i><i style="background:#F1EAE3"></i><i style="background:#C4B0A5"></i></div></div></div>
-          <div class="r"><ul class="see"><li>Tree rings draw in, the wordmark shrinks into the menu bar and an arch opens onto the new building at night.</li><li>Point at a product name and its picture appears in an arch on the right.</li><li>Chapter IV opens onto Shimlen’s own warehouse, in its own photographs.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://immersive-g.com/projects/cartier-in-time" target="_blank" rel="noopener"><b>Cartier · “Cartier in Time”</b><span>The house’s history as one long scroll through time, on dark pages.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-              <a class="ex" href="https://www.awwwards.com/gq-audemars-piguet-the-extraordinary-lab.html" target="_blank" rel="noopener"><b>Audemars Piguet × GQ</b><span>A story you move through like a film, one scene at a time.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
+  <article class="tile t2" tabindex="0" aria-label="Chronicle">
+    <div class="lab"><div class="no"><b>02</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="vn">Chronicle</div></div>
+    <div class="more"><div class="in">
+      <div class="pic"><img src="previews/d-revamp-2.jpg" alt="Chronicle on a computer"></div>
+      <div class="ph"><div class="scr"><img src="previews/m-revamp-2.jpg" alt="Chronicle on a phone"></div></div>
+      <div class="body"><div><h2 class="nm">Chronicle</h2><p class="one">Dark walnut, told as a book in five chapters.</p><p class="like">Works like Cartier and Audemars Piguet</p></div>
+        <a class="go" href="revamp-2/index.html">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div></div>
+  </article>
 
-    <article class="tile t3" tabindex="0" aria-label="Index, revamp 3">
-      <div class="lab"><div class="no"><b>03</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Index</div><div class="ln">A catalogue for specifiers</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-revamp-3.jpg" alt="Index on a computer"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-revamp-3.jpg" alt="Index on a phone"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Revamp 3 <span>New</span></div><h3 class="nm">Index</h3><div class="was">First called “Studio”</div>
-            <p class="one">A working catalogue for people who specify boards: every product in one numbered, searchable index.</p>
-            <div class="cta"><a class="go" href="revamp-3/index.html">Open Index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><div class="pal"><i style="background:#ECE9E4"></i><i style="background:#1E1B1B"></i><i style="background:#A39996"></i></div></div></div>
-          <div class="r"><ul class="see"><li>Filter by Board, Surface, Edge or low formaldehyde, or search by name or brand.</li><li>Add products to an enquiry list that fills in the contact form for you.</li><li>Numbered sections like a printed catalogue, with a picture for every year.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://www.kvadrat.dk" target="_blank" rel="noopener"><b>Kvadrat</b><span>Filters by specification, technical data and free samples.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-              <a class="ex" href="https://www.vitra.com" target="_blank" rel="noopener"><b>Vitra</b><span>Product pages with planning data and downloads for architects.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-              <a class="ex" href="https://www.formica.com" target="_blank" rel="noopener"><b>Formica</b><span>“Order free sample”, the same idea as the enquiry list.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
+  <article class="tile t4" tabindex="0" aria-label="Moodboard">
+    <div class="lab"><div class="no"><b>03</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="vn">Mood<em>board</em></div></div>
+    <div class="more"><div class="in">
+      <div class="pic"><img src="previews/d-revamp-4.jpg" alt="Moodboard on a computer"></div>
+      <div class="ph"><div class="scr"><img src="previews/m-revamp-4.jpg" alt="Moodboard on a phone"></div></div>
+      <div class="body"><div><h2 class="nm">Mood<em>board</em></h2><p class="one">Young, bright and hands-on.</p><p class="like">Works like EGGER’s Virtual Design Studio and IKEA</p></div>
+        <a class="go" href="revamp-4/index.html">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div></div>
+  </article>
+</div>
 
-    <article class="tile t4" tabindex="0" aria-label="Moodboard, revamp 4">
-      <div class="lab"><div class="no"><b>04</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Mood<em>board</em></div><div class="ln">Young, bright and hands-on</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-revamp-4.jpg" alt="Moodboard on a computer"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-revamp-4.jpg" alt="Moodboard on a phone"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Revamp 4 <span>New</span></div><h3 class="nm">Mood<em>board</em></h3><div class="was">First called “Quiet”</div>
-            <p class="one">Young, bright and hands-on: decors to play with, rooms to swipe through, one big number for scale.</p>
-            <div class="cta"><a class="go" href="revamp-4/index.html">Open Moodboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><div class="pal"><i style="background:#fff"></i><i style="background:#1F1B19"></i><i style="background:#5F6B58"></i><i style="background:#D9B98F"></i></div></div></div>
-          <div class="r"><ul class="see"><li>Boards in eight decors stack up on the opening screen, then fly out.</li><li>Rooms slide past sideways, and a wall of decors changes as you point.</li><li>10,000 m² lands huge over the warehouse; 45 years flip like an album.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://www.egger.com/en/support/visualization" target="_blank" rel="noopener"><b>EGGER · Virtual Design Studio</b><span>Try decors in room scenes, like the decor wall.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-              <a class="ex" href="https://www.ikea.com" target="_blank" rel="noopener"><b>IKEA</b><span>Rooms first, with the products shown inside them.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
+<footer>Pictures marked “Sample photo” or “Artist’s impression” are placeholders until the photoshoot.</footer>
+</div>
+
+<div class="guide" id="guide" role="dialog" aria-modal="false" aria-labelledby="gT">
+  <div class="hole" id="hole"></div>
+  <div class="gcard" id="gcard">
+    <h2 id="gT">How to use this page</h2>
+    <ol>
+      <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11m0-1.5a1.5 1.5 0 0 1 3 0V11m0-.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.5a6 6 0 0 1-5-2.7L4.6 15a1.5 1.5 0 0 1 2.4-1.8L9 15"/></svg></i><span><span class="mse"><b>Point at a design</b> to open it up.</span><span class="tch"><b>Tap a design</b> to open it up.</span></span></li>
+      <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i><span><b>Press “Open”</b> to see the full website.</span></li>
+      <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-3"/></svg></i><span>Use your browser’s <b>Back</b> button to return here.</span></li>
+    </ol>
+    <button class="ok" id="gOk" type="button">Got it</button>
   </div>
-</section>
-
-<section class="set" id="originals">
-  <div class="sh"><h2>Set A <span>· Originals</span></h2><p>Where it started: Shimlen’s own photos and drone films, kept as they were to compare</p></div>
-  <div class="acc sm">
-
-    <article class="tile t1 on" tabindex="0" aria-label="Linen, option 1">
-      <div class="lab"><div class="no"><b>01</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Linen</div><div class="ln">Soft panels, rounded cards</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-option-1.jpg" alt="Linen on a computer" loading="lazy"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-option-1.jpg" alt="Linen on a phone" loading="lazy"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Option 1 <span class="o">Original</span></div><h3 class="nm">Linen</h3><div class="was">First called “Open” · grew into Daylight</div>
-            <p class="one">Bright and airy: soft taupe panels, fine guide lines and rounded cards, with a statement that fills in as you read.</p>
-            <div class="cta"><a class="go" href="option-1/index.html">Open Linen <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-          <div class="r"><ul class="see"><li>Shimlen’s own photos and films throughout.</li><li>Rounded cards for products, rooms and the record.</li><li>A calm, even rhythm from top to bottom.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://www.apple.com" target="_blank" rel="noopener"><b>Apple</b><span>Rounded tiles, lots of space, short big statements.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
-
-    <article class="tile t2" tabindex="0" aria-label="Walnut, option 2">
-      <div class="lab"><div class="no"><b>02</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Walnut</div><div class="ln">An arch into the drone film</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-option-2.jpg" alt="Walnut on a computer" loading="lazy"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-option-2.jpg" alt="Walnut on a phone" loading="lazy"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Option 2 <span class="o">Original</span></div><h3 class="nm">Walnut</h3><div class="was">First called “Heartwood” · grew into Chronicle</div>
-            <p class="one">Dark walnut and cream with serif headings. The wordmark sits over an arch that opens into the drone film.</p>
-            <div class="cta"><a class="go" href="option-2/index.html">Open Walnut <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-          <div class="r"><ul class="see"><li>Tree-ring line art behind the opening.</li><li>The drone film of the site through the arch.</li><li>Warm, heavy and quiet, like a well-made cabinet.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://immersive-g.com/projects/cartier-in-time" target="_blank" rel="noopener"><b>Cartier · “Cartier in Time”</b><span>Heritage on dark pages, revealed as you scroll.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
-
-    <article class="tile t3" tabindex="0" aria-label="Gridline, option 3">
-      <div class="lab"><div class="no"><b>03</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Gridline</div><div class="ln">Editorial type on a grid</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-option-3.jpg" alt="Gridline on a computer" loading="lazy"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-option-3.jpg" alt="Gridline on a phone" loading="lazy"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Option 3 <span class="o">Original</span></div><h3 class="nm">Gridline</h3><div class="was">First called “Studio” · grew into Index</div>
-            <p class="one">Clean and editorial: large, tight type on a strict grid, warm off-white and stone, a full-width wordmark to close.</p>
-            <div class="cta"><a class="go" href="option-3/index.html">Open Gridline <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-          <div class="r"><ul class="see"><li>Everything lines up to one twelve-column grid.</li><li>Big type does the work; pictures framed like plates in a book.</li><li>The SHIMLEN wordmark runs edge to edge at the end.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://www.vitra.com" target="_blank" rel="noopener"><b>Vitra</b><span>A furniture maker with a clean grid and plenty of product detail.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
-
-    <article class="tile t4" tabindex="0" aria-label="Showreel, option 4">
-      <div class="lab"><div class="no"><b>04</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 5v14M5 12h14"/></svg></div><div class="bot"><div class="vn">Showreel</div><div class="ln">A full film and one line</div></div></div>
-      <div class="more"><div class="in">
-        <div class="pic"><img src="previews/d-option-4.jpg" alt="Showreel on a computer" loading="lazy"></div>
-        <div class="ph"><div class="scr"><img src="previews/m-option-4.jpg" alt="Showreel on a phone" loading="lazy"></div></div>
-        <div class="body"><div class="l">
-            <div class="kk">Option 4 <span class="o">Original</span></div><h3 class="nm">Showreel</h3><div class="was">First called “Quiet” · grew into Moodboard</div>
-            <p class="one">A full film with one line over it, then rooms and words that interlock, a range slider and a dotted timeline.</p>
-            <div class="cta"><a class="go" href="option-4/index.html">Open Showreel <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
-          <div class="r"><ul class="see"><li>Opens on Shimlen’s own film, full screen.</li><li>Rooms and words fit together like a puzzle.</li><li>The range slides sideways; the years run along a dotted line.</li></ul>
-            <div class="seen"><h3>Bigger brands that work this way</h3>
-              <a class="ex" href="https://www.finsa.com" target="_blank" rel="noopener"><b>Finsa</b><span>The Spanish board maker this layout followed.</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></div></div>
-      </div></div>
-    </article>
-  </div>
-</section>
-
-<footer><span>Pictures marked “Sample photo” or “Artist’s impression” are placeholders until the photoshoot. Brand examples show a way of working, not a copy of their sites.</span><span>Shimlen Sdn. Bhd. · concept for review · best seen on a computer first, then on a phone</span></footer>
 </div>
 
 <script>
 (function(){
   const desk=matchMedia('(min-width:861px)'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  /* the open tile's screenshots glide down the real page and back, slowly; a closing tile glides home first */
+  const acc=document.getElementById('acc'),ts=[...acc.querySelectorAll('.tile')];let wait;
+  /* the open tile's screenshots glide slowly down the real page and back; a closing tile glides home first */
   const glide=(im,on)=>{clearTimeout(im._t);const f=im.parentElement,d=Math.min(0,f.clientHeight-im.offsetHeight),tx=getComputedStyle(im).getPropertyValue('--tx').trim()||'0px';
     const to=(y,s,w)=>{im.style.transition=`transform ${s}s cubic-bezier(.45,0,.55,1) ${w}s`;im.style.transform=`translate3d(${tx},${y}px,0)`;im._y=y};
     if(!on||reduce||!d){to(0,on?0:.9,0);return}
     const s=Math.max(12,Math.round(-d/60));
     const loop=first=>{to(im._y<0?0:d,s,first?1.3:1.6);im._t=setTimeout(()=>loop(false),(s+(first?1.3:1.6))*1000)};
     loop(true)};
-  document.querySelectorAll('.acc').forEach(acc=>{
-    const ts=[...acc.querySelectorAll('.tile')];let wait;
-    const size=()=>{if(!desk.matches){acc.style.removeProperty('--aw');return}
-      const g=parseFloat(getComputedStyle(acc).getPropertyValue('--grow'))||4.6,gap=parseFloat(getComputedStyle(acc).columnGap)||10,n=ts.length;
-      acc.style.setProperty('--aw',((acc.clientWidth-gap*(n-1))*g/(g+n-1)).toFixed(1)+'px')};
-    const imgs=t=>t.querySelectorAll('.scr img,.pic>img');
-    /* on a computer one tile is always open; on a phone a tap opens or closes it */
-    const open=t=>{const was=t.classList.contains('on');if(was&&desk.matches)return;
-      ts.forEach(x=>{const on=x===t&&!was;x.classList.toggle('on',on);x.setAttribute('aria-expanded',on);imgs(x).forEach(im=>glide(im,on))})};
-    ts.forEach(t=>{
-      t.addEventListener('pointerenter',e=>{if(e.pointerType!=='mouse'||!desk.matches)return;clearTimeout(wait);wait=setTimeout(()=>open(t),110)});
-      t.addEventListener('pointerleave',()=>clearTimeout(wait));
-      t.addEventListener('click',e=>{if(e.target.closest('a'))return;open(t)});
-      t.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target===t){e.preventDefault();open(t)}});
-      t.addEventListener('focusin',e=>{if(desk.matches&&e.target!==t)open(t)})});
-    /* phones start with every tile closed */
-    if(!desk.matches)ts.forEach(t=>t.classList.remove('on'));
-    ts.forEach(t=>t.setAttribute('aria-expanded',t.classList.contains('on')));
-    size();addEventListener('resize',()=>{size();ts.forEach(t=>imgs(t).forEach(im=>glide(im,t.classList.contains('on'))))});
-    ts.forEach(t=>imgs(t).forEach(im=>{const go=()=>glide(im,t.classList.contains('on'));im.complete?go():im.addEventListener('load',go,{once:true})}))});
+  const imgs=t=>t.querySelectorAll('.scr img,.pic>img');
+  const size=()=>{if(!desk.matches){acc.style.removeProperty('--aw');return}
+    const g=parseFloat(getComputedStyle(acc).getPropertyValue('--grow'))||4,gap=parseFloat(getComputedStyle(acc).columnGap)||12,n=ts.length;
+    acc.style.setProperty('--aw',((acc.clientWidth-gap*(n-1))*g/(g+n-1)).toFixed(1)+'px')};
+  /* on a computer one tile is always open; on a phone a tap opens or closes it */
+  const open=t=>{const was=t.classList.contains('on');if(was&&desk.matches)return;
+    ts.forEach(x=>{const on=x===t&&!was;x.classList.toggle('on',on);x.setAttribute('aria-expanded',on);imgs(x).forEach(im=>glide(im,on))})};
+  ts.forEach(t=>{
+    t.addEventListener('pointerenter',e=>{if(e.pointerType!=='mouse'||!desk.matches)return;clearTimeout(wait);wait=setTimeout(()=>open(t),110)});
+    t.addEventListener('pointerleave',()=>clearTimeout(wait));
+    t.addEventListener('click',e=>{if(e.target.closest('a'))return;open(t)});
+    t.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target===t){e.preventDefault();open(t)}});
+    t.addEventListener('focusin',e=>{if(desk.matches&&e.target!==t)open(t)})});
+  if(!desk.matches)ts.forEach(t=>t.classList.remove('on'));
+  ts.forEach(t=>t.setAttribute('aria-expanded',t.classList.contains('on')));
+  size();
+  ts.forEach(t=>imgs(t).forEach(im=>{const go=()=>glide(im,t.classList.contains('on'));im.complete?go():im.addEventListener('load',go,{once:true})}));
+
+  /* guide: a dimmed page with the tiles left lit, and a card that says what to do */
+  const G=document.getElementById('guide'),hole=document.getElementById('hole'),card=document.getElementById('gcard');
+  const place=()=>{const r=acc.getBoundingClientRect(),p=8;
+    hole.style.left=(r.left-p)+'px';hole.style.top=(Math.max(r.top,8)-p)+'px';hole.style.width=(r.width+2*p)+'px';hole.style.height=(Math.min(r.bottom,innerHeight-8)-Math.max(r.top,8)+2*p)+'px';
+    const cw=card.offsetWidth,ch=card.offsetHeight;
+    if(desk.matches){const open=acc.querySelector('.tile.on')||ts[0],o=open.getBoundingClientRect();
+      /* over the open tile's picture, clear of its Open button */
+      card.style.left=Math.min(innerWidth-cw-16,Math.max(16,o.left+28))+'px';card.style.top=Math.max(16,Math.min(innerHeight-ch-16,o.top+28))+'px'}
+    else{card.style.left=((innerWidth-cw)/2)+'px';card.style.top=Math.max(16,innerHeight-ch-20)+'px'}};
+  const show=()=>{G.classList.add('on');document.body.classList.add('guiding');place();setTimeout(()=>document.getElementById('gOk').focus({preventScroll:true}),100)};
+  const hide=()=>{G.classList.remove('on');document.body.classList.remove('guiding');try{localStorage.setItem('shimlenGuide','1')}catch(e){}};
+  document.getElementById('gOk').addEventListener('click',hide);
+  document.getElementById('help').addEventListener('click',()=>{scrollTo({top:0,behavior:reduce?'auto':'smooth'});setTimeout(show,reduce?0:300)});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&G.classList.contains('on'))hide()});
+  addEventListener('resize',()=>{size();ts.forEach(t=>imgs(t).forEach(im=>glide(im,t.classList.contains('on'))));if(G.classList.contains('on'))place()});
+  addEventListener('scroll',()=>{if(G.classList.contains('on'))place()},{passive:true});
+  /* the card follows whichever tile is open while the guide is up */
+  acc.addEventListener('transitionend',e=>{if(e.propertyName==='flex-grow'&&G.classList.contains('on'))place()});
+  let seen=false;try{seen=localStorage.getItem('shimlenGuide')==='1'}catch(e){}
+  if(!seen&&location.search.indexOf('shot')<0)setTimeout(show,700);
 })();
 </script>
 </body>
